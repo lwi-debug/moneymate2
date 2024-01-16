@@ -13,6 +13,20 @@ public class Portefeuille1 {
         this.cryptos = new ArrayList<>();
         this.actions = new ArrayList<>();
     }
+    public boolean estVide() {
+        return liquidites.isEmpty() && cryptos.isEmpty() && actions.isEmpty();
+    }
+    public void ajouterLiquidite(Liquidité1 liquidite) {
+        liquidites.add(liquidite);
+    }
+
+    public void ajouterCrypto(Crypto1 crypto) {
+        cryptos.add(crypto);
+    }
+
+    public void ajouterAction(Action1 action) {
+        actions.add(action);
+    }
     // Getters et setters ici
 }
 

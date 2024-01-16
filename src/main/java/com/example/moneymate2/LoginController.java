@@ -30,8 +30,7 @@ public class LoginController {
         gestionUtilisateur = new GestionUtilisateur();
     }
 
-    @FXML
-    protected void onLoginButtonClick(ActionEvent event) {
+    public void onLoginButtonClick(ActionEvent event) {
         String email = emailTextField.getText();
         String motDePasse = motDePasseTextField.getText();
 
@@ -40,11 +39,18 @@ public class LoginController {
         if (utilisateur != null) {
             System.out.println("Connexion réussie pour : " + email);
             try {
+                // Charger le tableau de bord (Dashboard) après la connexion réussie
                 FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com/example/moneymate2/Dashboard.fxml"));
-                Parent signUpRoot = loader.load();
+                Parent dashboardRoot = loader.load();
+
+                // Récupérer le contrôleur du tableau de bord et définir l'utilisateur connecté
+                DashboardController dashboardController = loader.getController();
+                dashboardController.setUtilisateurConnecte(utilisateur);
+
+                // Mettre en place la nouvelle scène
                 Scene scene = loginButton.getScene();
                 Stage stage = (Stage) scene.getWindow();
-                stage.setScene(new Scene(signUpRoot));
+                stage.setScene(new Scene(dashboardRoot));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -52,6 +58,7 @@ public class LoginController {
             System.out.println("Erreur de connexion pour : " + email);
         }
     }
+
     @FXML
     void  AfficherInscription(MouseEvent event) {
         try {

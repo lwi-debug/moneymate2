@@ -11,13 +11,23 @@ import javafx.stage.Stage;
 public class DashboardController {
     @FXML
     private JFXButton Portefeuillecreation;
-    @FXML
-    void affichercreaportefeuil(MouseEvent event) {
+    private Utilisateur1 utilisateurConnecte;
+    private GestionUtilisateur gestionUtilisateur;
+
+    public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
+        this.utilisateurConnecte = utilisateur;
+        this.gestionUtilisateur = new GestionUtilisateur(); // Initialisation de gestionUtilisateur
+    }
+    public void affichercreaportefeuil() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/CreationP.fxml"));
             Parent settingsRoot = loader.load();
-            Scene scene = Portefeuillecreation.getScene();
 
+            CreationPortefeuilleController creationController = loader.getController();
+            creationController.setUtilisateurConnecte(this.utilisateurConnecte);
+            creationController.setGestionUtilisateur(this.gestionUtilisateur);
+
+            Scene scene = Portefeuillecreation.getScene();
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
@@ -25,3 +35,7 @@ public class DashboardController {
         }
     }
 }
+
+
+
+

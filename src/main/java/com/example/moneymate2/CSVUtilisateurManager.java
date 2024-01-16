@@ -34,7 +34,13 @@ public class CSVUtilisateurManager {
     }
 
     private static String convertirEnCSV(Utilisateur1 utilisateur) {
-        return utilisateur.getNom() + "," + utilisateur.getPrenom() + "," + utilisateur.getEmail() + "," + utilisateur.getMotDePasse();
+        String infoPortefeuilles = utilisateur.getPortefeuilles().stream()
+                .map(Portefeuille1::toString) // Assure-toi d'avoir une méthode toString() bien définie dans Portefeuille1
+                .collect(Collectors.joining(";"));
+
+        return utilisateur.getNom() + "," + utilisateur.getPrenom() + ","
+                + utilisateur.getEmail() + "," + utilisateur.getMotDePasse() + ","
+                + infoPortefeuilles;
     }
 }
 

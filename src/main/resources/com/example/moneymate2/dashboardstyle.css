@@ -205,7 +205,7 @@
 
 /* Style pour le fond transparent du graphique */
 .chart {
-    -fx-innner-background-color: -fx-background-color: linear-gradient(to right,#11009E,#525CEB);
+-fx-background-color: linear-gradient(to right,#11009E,#525CEB);
 }
 
 /* Style pour les axes (en blanc) */

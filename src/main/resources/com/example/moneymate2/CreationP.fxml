@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.CreationPController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.CreationPortefeuilleController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="77.0" styleClass="sidebar" BorderPane.alignment="CENTER">
          <children>
@@ -82,7 +82,7 @@
                            <font>
                               <Font name="Candara Light" size="14.0" />
                            </font></Label>
-                        <TextField fx:id="txtLiquideMontant" layoutX="41.0" layoutY="137.0" prefHeight="27.0" prefWidth="172.0" promptText="Solde de votre Compte" styleClass="ios-field2">
+                        <TextField fx:id="montantLiquiditeTextField" layoutX="41.0" layoutY="137.0" prefHeight="27.0" prefWidth="172.0" promptText="Solde de votre Compte" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
@@ -102,13 +102,13 @@
                            <font>
                               <Font name="Candara Light" size="14.0" />
                            </font></Label>
-                        <TextField fx:id="txtCryptoNom" layoutX="42.0" layoutY="108.0" prefHeight="27.0" prefWidth="172.0" promptText="Symbole Crypto" styleClass="ios-field2">
+                        <TextField fx:id="nomCryptoTextField" layoutX="42.0" layoutY="108.0" prefHeight="27.0" prefWidth="172.0" promptText="Symbole Crypto" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
                            </stylesheets>
                         </TextField>
-                        <TextField fx:id="txtCryptoQuantite" layoutX="42.0" layoutY="178.0" prefHeight="27.0" prefWidth="172.0" promptText="Quantité" styleClass="ios-field2">
+                        <TextField fx:id="quantiteCryptoTextField" layoutX="42.0" layoutY="178.0" prefHeight="27.0" prefWidth="172.0" promptText="Quantité" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
@@ -129,13 +129,13 @@
                            <font>
                               <Font name="Candara Light" size="14.0" />
                            </font></Label>
-                        <TextField fx:id="txtActionNom" layoutX="45.0" layoutY="108.0" prefHeight="27.0" prefWidth="172.0" promptText="Symbole Action" styleClass="ios-field2">
+                        <TextField fx:id="nomActionTextField" layoutX="45.0" layoutY="108.0" prefHeight="27.0" prefWidth="172.0" promptText="Symbole Action" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
                            </stylesheets>
                         </TextField>
-                        <TextField fx:id="txtActionQuantite" layoutX="45.0" layoutY="177.0" prefHeight="27.0" prefWidth="172.0" promptText="Quantité" styleClass="ios-field2">
+                        <TextField fx:id="quantiteActionTextField" layoutX="45.0" layoutY="177.0" prefHeight="27.0" prefWidth="172.0" promptText="Quantité" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
@@ -150,7 +150,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <JFXButton fx:id="boutoncreer" buttonType="RAISED" layoutX="177.0" layoutY="103.0" prefHeight="39.0" prefWidth="489.0" styleClass="btncv" text="Validez la céation de votre Portefeuille" />
+                  <JFXButton fx:id="creerPortefeuilleButton" buttonType="RAISED" layoutX="177.0" layoutY="103.0" onAction="#onCreerPortefeuilleButtonClick" prefHeight="39.0" prefWidth="489.0" styleClass="btncv" text="Validez la céation de votre Portefeuille" />
                </children>
                <stylesheets>
                   <URL value="@dashboardstyle.css" />

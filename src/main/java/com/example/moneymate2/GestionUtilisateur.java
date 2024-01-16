@@ -11,7 +11,9 @@ public class GestionUtilisateur {
         this.utilisateurs = CSVUtilisateurManager.chargerUtilisateurs();
     }
 
+
     public boolean creerCompte(String nom, String prenom, String email, String motDePasse) {
+        System.out.println("Création de compte en cours pour l'email : " + email);
         if (emailExiste(email)) {
             // Retourner false si l'email existe déjà
             return false;
@@ -19,10 +21,12 @@ public class GestionUtilisateur {
         // Créer un nouvel utilisateur et l'ajouter à la liste
         Utilisateur1 nouvelUtilisateur = new Utilisateur1(nom, prenom, email, motDePasse);
         utilisateurs.add(nouvelUtilisateur);
+        System.out.println("Compte créé avec succès : " + email);
 
         // Sauvegarder la nouvelle liste d'utilisateurs dans le CSV
         CSVUtilisateurManager.sauvegarderUtilisateurs(utilisateurs);
         return true;
+
     }
 
     public Utilisateur1 connexion(String email, String motDePasse) {
@@ -44,6 +48,16 @@ public class GestionUtilisateur {
         }
         return false;
     }
-
-    // Méthodes supplémentaires si nécessaire
+    public void sauvegarderUtilisateur(Utilisateur1 utilisateur) {
+        System.out.println("Mise à jour de l'utilisateur: " + utilisateur.getEmail());
+        for (int i = 0; i < utilisateurs.size(); i++) {
+            if (utilisateurs.get(i).getEmail().equals(utilisateur.getEmail())) {
+                utilisateurs.set(i, utilisateur);
+                break;
+            }
+        }
+        // Sauvegarder la liste mise à jour dans le fichier CSV
+        CSVUtilisateurManager.sauvegarderUtilisateurs(utilisateurs);
+    }
 }
+
