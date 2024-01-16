@@ -1,18 +1,32 @@
 package com.example.moneymate2;
 
 import com.jfoenix.controls.JFXButton;
+import com.rometools.rome.feed.synd.SyndEntry;
+import com.rometools.rome.feed.synd.SyndFeed;
+import com.rometools.rome.io.FeedException;
+import com.rometools.rome.io.SyndFeedInput;
+import com.rometools.rome.io.XmlReader;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
 
 public class DashboardController {
     @FXML
     private JFXButton Portefeuillecreation;
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
+
+    @FXML
+    private ListView<String> Actu;
 
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
@@ -34,6 +48,32 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+    @FXML
+    public void initialize() {
+        readRss("https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/business/small-business/rss.xml");
+    }
+
+    @FXML void readRss(String rssUrl) {
+        new Thread(() -> {
+            try {
+                URL feedSource = new URL(rssUrl);
+                SyndFeedInput input = new SyndFeedInput();
+                SyndFeed feed = input.build(new XmlReader(feedSource));
+
+                List<SyndEntry> entries = feed.getEntries();
+                Platform.runLater(() -> {
+                    for (SyndEntry entry : entries) {
+                        String link = entry.getLink(); // Récupérer le lien
+                        String newsItem = "Title: " + entry.getTitle() + "\nDate: " + entry.getPublishedDate() + "\nDescription: " + entry.getDescription().getValue() + "\nLink: " + link;
+                        Actu.getItems().add(newsItem);
+                    }
+                });
+            } catch (FeedException | IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
 }
 
 
