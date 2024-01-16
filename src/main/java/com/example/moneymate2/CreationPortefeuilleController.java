@@ -59,5 +59,12 @@ public class CreationPortefeuilleController {
         } else {
             System.out.println("Le portefeuille est vide.");
         }
+        afficherContenuPortefeuille();
+    }
+    private void afficherContenuPortefeuille() {
+        System.out.println("Contenu du portefeuille créé :");
+        System.out.println("Liquidités : " + montantLiquiditeTextField.getText() + " EUR");
+        System.out.println("Crypto : " + nomCryptoTextField.getText() + ", Quantité : " + quantiteCryptoTextField.getText());
+        System.out.println("Actions : " + nomActionTextField.getText() + ", Quantité : " + quantiteActionTextField.getText());
     }
 }

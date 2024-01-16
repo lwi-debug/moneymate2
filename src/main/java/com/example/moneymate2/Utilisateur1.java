@@ -1,6 +1,7 @@
 package com.example.moneymate2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Utilisateur1{
@@ -32,6 +33,10 @@ public class Utilisateur1{
     public String getMotDePasse() {
         return motDePasse;
     }
+    public List<Portefeuille1> getPortefeuilles() {
+        return this.portefeuilles;
+    }
+
 
     // Setters
     public void setNom(String nom) {
@@ -57,5 +62,7 @@ public class Utilisateur1{
     public void ajouterPortefeuille(Portefeuille1 portefeuille) {
         this.portefeuilles.add(portefeuille);
     }
+
+
 }
 
