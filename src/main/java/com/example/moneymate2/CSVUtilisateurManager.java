@@ -30,7 +30,7 @@ public class CSVUtilisateurManager {
 
     private static Utilisateur1 convertirEnUtilisateur(String line) {
         String[] data = line.split(",");
-        return new Utilisateur1(data[0], data[1], data[2], data[3]); // Assure-toi que l'ordre correspond
+        return new Utilisateur1(data[0], data[1], data[2], data[3]);
     }
 
     private static String convertirEnCSV(Utilisateur1 utilisateur) {
