@@ -64,12 +64,16 @@ public class CreationPortefeuilleController {
         } else {
             System.out.println("Le portefeuille est vide.");
         }
-        afficherContenuPortefeuille(liquidite, crypto, action);
+        afficherContenuPortefeuille(portefeuille);
     }
-    private void afficherContenuPortefeuille(Liquidité1 liquidite, Crypto1 crypto, Action1 action) {
-        System.out.println("Contenu du portefeuille créé :");
-        System.out.println("Liquidités : " + liquidite.getMontant() + " EUR");
-        System.out.println("Crypto : " + crypto.getSymbole() + ", Quantité : " + crypto.getQuantite());
-        System.out.println("Actions : " + action.getSymbole() + ", Quantité : " + action.getQuantite());
+    private void afficherContenuPortefeuille(Portefeuille1 portefeuille) {
+        double totalLiquidites = portefeuille.valeurTotaleLiquidites();
+        double totalCryptos = portefeuille.valeurTotaleCryptos();
+        double totalActions = portefeuille.valeurTotaleActions();
+
+        System.out.println("Contenu du portefeuille créé (ID: " + portefeuille.getIdentifiant() + ") :");
+        System.out.println("Total Liquidités: " + totalLiquidites + " EUR");
+        System.out.println("Valeur totale des Cryptos: " + totalCryptos + " EUR");
+        System.out.println("Valeur totale des Actions: " + totalActions + " EUR");
     }
 }
