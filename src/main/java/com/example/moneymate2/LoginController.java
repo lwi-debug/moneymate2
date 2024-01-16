@@ -24,11 +24,13 @@ public class LoginController {
     @FXML
     public Label inscription;
 
+
     private GestionUtilisateur gestionUtilisateur;
 
     public LoginController() {
         gestionUtilisateur = new GestionUtilisateur();
     }
+
 
     public void onLoginButtonClick(ActionEvent event) {
         String email = emailTextField.getText();
@@ -49,6 +51,7 @@ public class LoginController {
                 // Récupérer le contrôleur du tableau de bord et définir l'utilisateur connecté
                 DashboardController dashboardController = loader.getController();
                 dashboardController.setUtilisateurConnecte(utilisateur);
+
 
                 // Mettre en place la nouvelle scène
                 Scene scene = loginButton.getScene();

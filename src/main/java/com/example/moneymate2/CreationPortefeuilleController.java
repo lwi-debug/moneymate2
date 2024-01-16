@@ -1,10 +1,24 @@
 package com.example.moneymate2;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class CreationPortefeuilleController {
+    @FXML
+    public JFXButton Dash;
+    @FXML
+    public JFXButton evolution;
+    @FXML
+    private JFXButton setting;
+    @FXML
+    private JFXButton PorDet;
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
     @FXML
@@ -76,4 +90,57 @@ public class CreationPortefeuilleController {
         System.out.println("Valeur totale des Cryptos: " + totalCryptos + " EUR");
         System.out.println("Valeur totale des Actions: " + totalActions + " EUR");
     }
+    @FXML
+    void  affichersetting(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Settings.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = setting.getScene();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void afficherportfoliodetails(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioDetails.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = PorDet.getScene();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void afficherDashboard(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Dashboard.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = Dash.getScene();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void afficherevolution(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioEvolution.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = evolution.getScene();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

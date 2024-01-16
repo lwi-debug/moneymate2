@@ -24,6 +24,12 @@ public class DashboardController {
     private JFXButton Portefeuillecreation;
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
+    @FXML
+    private JFXButton setting;
+    @FXML
+    private JFXButton PorDet;
+    @FXML
+    private JFXButton evolution;
 
     @FXML
     private ListView<String> Actu;
@@ -73,6 +79,45 @@ public class DashboardController {
                 e.printStackTrace();
             }
         }).start();
+    }
+    @FXML
+    void afficherportfoliodetails(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioDetails.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = PorDet.getScene();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void affichersetting(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Settings.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = setting.getScene();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void afficherevolution(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioEvolution.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = evolution.getScene();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

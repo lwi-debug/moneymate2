@@ -20,12 +20,12 @@
                   <FontAwesomeIconView glyphName="BARS" size="18" styleClass="icon-color" wrappingWidth="18.300000190734863" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="PorDet" layoutX="-1.0" layoutY="257.0" prefHeight="30.0" prefWidth="78.0" styleClass="transbtn" stylesheets="@dashboardstyle.css" text=" ">
+            <JFXButton fx:id="PorDet" layoutX="-1.0" layoutY="257.0" onMouseClicked="#afficherportfoliodetails" prefHeight="30.0" prefWidth="78.0" styleClass="transbtn" stylesheets="@dashboardstyle.css" text=" ">
                <graphic>
                   <FontAwesomeIconView glyphName="CREDIT_CARD" selectionFill="#429448" size="18" styleClass="icon-color" wrappingWidth="18.300000190734863" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="evolution" layoutX="-1.0" layoutY="313.0" prefHeight="30.0" prefWidth="78.0" styleClass="transbtn" stylesheets="@dashboardstyle.css" text=" ">
+            <JFXButton fx:id="evolution" layoutX="-1.0" layoutY="313.0" onMouseClicked="#afficherevolution" prefHeight="30.0" prefWidth="78.0" styleClass="transbtn" stylesheets="@dashboardstyle.css" text=" ">
                <graphic>
                   <FontAwesomeIconView glyphName="SIGNAL" size="18" styleClass="icon-color" wrappingWidth="18.300000190734863" />
                </graphic>
@@ -35,7 +35,7 @@
                   <FontAwesomeIconView glyphName="BANK" selectionFill="#429448" size="18" styleClass="icon-colorpage" wrappingWidth="18.300000190734863" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="setting" layoutX="-1.0" layoutY="374.0" prefHeight="30.0" prefWidth="78.0" styleClass="transbtn" stylesheets="@dashboardstyle.css" text=" ">
+            <JFXButton fx:id="setting" layoutX="-1.0" layoutY="374.0" onMouseClicked="#affichersetting" prefHeight="30.0" prefWidth="78.0" styleClass="transbtn" stylesheets="@dashboardstyle.css" text=" ">
                <graphic>
                   <FontAwesomeIconView glyphName="GEAR" size="20" styleClass="icon-color" text="" wrappingWidth="18.300000190734863" />
                </graphic>

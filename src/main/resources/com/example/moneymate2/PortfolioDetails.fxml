@@ -18,7 +18,7 @@
                       <FontAwesomeIconView glyphName="BARS" size="18" styleClass="icon-color2" text="" wrappingWidth="18.300000190734863" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="Dash" layoutY="190.0" prefHeight="39.0" prefWidth="78.0" text=" ">
+            <JFXButton fx:id="Dash" layoutY="190.0" onMouseClicked="#afficherDashboard" prefHeight="39.0" prefWidth="78.0" text=" ">
                <graphic>
                       <FontAwesomeIconView glyphName="BANK" selectionFill="#429448" size="18" styleClass="icon-color2" wrappingWidth="18.300000190734863" />
                </graphic>
@@ -28,12 +28,12 @@
                       <FontAwesomeIconView glyphName="CREDIT_CARD" size="18" styleClass="iconescene2" wrappingWidth="18.300000190734863" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="evolution" layoutX="-2.0" layoutY="308.0" prefHeight="39.0" prefWidth="80.0" text=" ">
+            <JFXButton fx:id="evolution" layoutX="-2.0" layoutY="308.0" onMouseClicked="#afficherevolution" prefHeight="39.0" prefWidth="80.0" text=" ">
                <graphic>
                       <FontAwesomeIconView glyphName="SIGNAL" size="18" styleClass="icon-color2" wrappingWidth="18.300000190734863" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="setting" layoutX="1.0" layoutY="369.0" prefHeight="39.0" prefWidth="76.0" text=" ">
+            <JFXButton fx:id="setting" layoutX="1.0" layoutY="369.0" onMouseClicked="#affichersetting" prefHeight="39.0" prefWidth="76.0" text=" ">
                <graphic>
                       <FontAwesomeIconView glyphName="GEAR" size="20" styleClass="icon-color2" text="" wrappingWidth="18.300000190734863" />
                </graphic>
