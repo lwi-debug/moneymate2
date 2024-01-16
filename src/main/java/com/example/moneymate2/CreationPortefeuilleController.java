@@ -35,6 +35,11 @@ public class CreationPortefeuilleController {
     @FXML
     protected void onCreerPortefeuilleButtonClick() {
 
+        if (utilisateurConnecte == null) {
+            System.out.println("Erreur: Aucun utilisateur connecté.");
+            return;
+        }
+
         if (utilisateurConnecte == null || gestionUtilisateur == null) {
             System.out.println("Erreur: Utilisateur non connecté ou gestionnaire d'utilisateurs non initialisé.");
             return;

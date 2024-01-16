@@ -35,7 +35,10 @@ public class LoginController {
         String motDePasse = motDePasseTextField.getText();
 
         Utilisateur1 utilisateur = gestionUtilisateur.connexion(email, motDePasse);
-
+        if (utilisateur == null) {
+            System.out.println("Erreur de connexion pour : " + email);
+            return;
+        }
         if (utilisateur != null) {
             System.out.println("Connexion réussie pour : " + email);
             try {

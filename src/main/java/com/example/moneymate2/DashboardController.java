@@ -37,6 +37,7 @@ public class DashboardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/CreationP.fxml"));
             Parent settingsRoot = loader.load();
 
+             // Assurez-vous que cette ligne est correcte
             CreationPortefeuilleController creationController = loader.getController();
             creationController.setUtilisateurConnecte(this.utilisateurConnecte);
             creationController.setGestionUtilisateur(this.gestionUtilisateur);

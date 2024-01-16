@@ -28,19 +28,17 @@ public class CSVUtilisateurManager {
         }
     }
 
-    private static Utilisateur1 convertirEnUtilisateur(String line) {
-        String[] data = line.split(",");
-        return new Utilisateur1(data[0], data[1], data[2], data[3]);
+    private static Utilisateur1 convertirEnUtilisateur(String ligneCsv) {
+        String[] data = ligneCsv.split(",");
+        if (data.length < 4) {
+            System.out.println("Ligne CSV invalide: " + ligneCsv);
+            return null;
+        }
+        return new Utilisateur1(data[0], data[1], data[2], data[3]); // Nom, Prénom, Email, MotDePasse
     }
 
     private static String convertirEnCSV(Utilisateur1 utilisateur) {
-        String infoPortefeuilles = utilisateur.getPortefeuilles().stream()
-                .map(Portefeuille1::toString) // Assure-toi d'avoir une méthode toString() bien définie dans Portefeuille1
-                .collect(Collectors.joining(";"));
-
         return utilisateur.getNom() + "," + utilisateur.getPrenom() + ","
-                + utilisateur.getEmail() + "," + utilisateur.getMotDePasse() + ","
-                + infoPortefeuilles;
+                + utilisateur.getEmail() + "," + utilisateur.getMotDePasse();
     }
 }
-

@@ -40,9 +40,9 @@ public class GestionUtilisateur {
         return null;
     }
 
-    private boolean emailExiste(String email) {
+    public boolean emailExiste(String email) {
         for (Utilisateur1 utilisateur : utilisateurs) {
-            if (utilisateur.getEmail().equals(email)) {
+            if (utilisateur != null && utilisateur.getEmail().equals(email)) {
                 return true;
             }
         }
