@@ -1,0 +1,191 @@
+* {
+	-fx-primary-color: #176B87;
+	-fx-secondary-color: #4B6EAF;
+	-fx-grey-color: #b9b9b9;
+    
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.text-field {
+	-fx-accent: -fx-primary-color;
+	-fx-background-color: -fx-grey-color, white;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-background-radius: 0;
+}
+
+.btnlog {
+    -fx-background-color: #1B4242;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 20px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 20px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.btnlog:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius:20px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 20px; /* Pas d'espace avant "px" */
+    -fx-text-fill: #5C8374;
+    -fx-border-width: 2px;
+    -fx-border-color: #5C8374;
+    -fx-border-style: solid;
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+.btncrea {
+
+    -fx-background-color: transparent;
+        -fx-background-radius:5px; /* Pas d'espace avant "px" */
+        -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+        -fx-text-fill:  #1B4242;
+        -fx-border-width: 2px;
+        -fx-border-color:  #1B4242;
+        -fx-border-style: solid;
+        -fx-font-family: 'Calibri'; /* Assurez-vous que cette police est disponible */
+        -fx-font-weight: bold;
+        -fx-font-size: 20px;
+}
+
+.btncrea:hover {
+     -fx-background-color: #1B4242;
+        -fx-text-fill: #fff;
+        -fx-background-radius: 5px; /* Pas d'espace avant "px" */
+        -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+        -fx-font-family: 'Calibri'; /* Assurez-vous que cette police est disponible */
+        -fx-font-weight: bold;
+        -fx-font-size: 20px;
+}
+
+.ios-field {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #D7D6DC transparent; /* Bordure uniquement en bas */
+    -fx-border-width: 0 0 2px 0; /* Épaisseur de la bordure en bas */
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 4 7 4 15;
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+}
+
+
+.ios-field:hover{
+-fx-text-fill :  #176b87;
+}
+
+.sign{
+-fx-text-fill: #5C8374;}
+
+.sign:hover{
+-fx-text-fill: #1B4242;
+}
+
+.col1{
+-fx-text-fill: #fff;
+}
+.col2{
+-fx-text-fill: #092635;
+}
+.col3{
+-fx-text-fill: #1B4242;;
+}
+.col4{
+-fx-text-fill: #5C8374;;
+}
+
+
+.textgris{
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #D3D3D3;}
+}
+.panelog{
+-fx-background-color:#1B4242;
+}
+
+.iconcol{
+-fx-fill:#1B4242;
+}
+.iconcol:hover{
+-fx-fill:#5C8374;
+}
+.iconcol2{
+-fx-fill:#5C8374;
+}
+.iconcol2:hover{
+-fx-fill:#1B4242;
+}
+.cercle1 {
+-fx-fill:#9EC8B9;
+}
+.cercle2 {
+-fx-fill:#bf7373;
+}
+.col5 {
+-fx-text-fill: #bf7373;
+}
+.col6 {
+-fx-text-fill: #9EC8B9;
+}
+.btnAV {
+
+ -fx-background-color: #1B4242;
+        -fx-text-fill: #fff;
+        -fx-background-radius: 5px; /* Pas d'espace avant "px" */
+        -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+        -fx-font-family: 'Calibri'; /* Assurez-vous que cette police est disponible */
+        -fx-font-weight: bold;
+        -fx-font-size: 14px;
+}
+
+.btnAV:hover {
+
+-fx-background-color: transparent;
+                -fx-background-radius:5px; /* Pas d'espace avant "px" */
+                -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+                -fx-text-fill:  #1B4242;
+                -fx-border-width: 2px;
+                -fx-border-color:  #1B4242;
+                -fx-border-style: solid;
+                -fx-font-family: 'Calibri'; /* Assurez-vous que cette police est disponible */
+                -fx-font-weight: bold;
+                -fx-font-size: 14px;
+
+
+}
+/* Style pour les champs de texte non focalisés */
+.ios-field2 {
+    -fx-background-color: transparent;
+    -fx-fill: #ffffff;
+    -fx-font-family: 'Calibri';
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent transparent #ffffff transparent;
+    -fx-border-width: 0 0 2px 0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 4 7 4 15;
+    -fx-prompt-text-fill: white; /* Texte de prompt en blanc */
+}
+
+/* Style pour les champs de texte focalisés */
+.ios-field2:focused {
+    -fx-border-color: transparent transparent #ffffff transparent;
+    -fx-border-width: 0 0 2px 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'Calibri';
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-padding: 4 7 4 15;
+}
+
+.cortt{
+ -fx-text-fill: #ffffff;
+    -fx-font-family: 'Calibri';
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}

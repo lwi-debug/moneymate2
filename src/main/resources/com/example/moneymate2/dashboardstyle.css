@@ -1,0 +1,340 @@
+.parent{
+-fx-background-color: #ffffff;
+-fx-background-radius: 30px;
+}
+
+.sidebar {
+    -fx-background-color: #ffffff;
+}
+.icon-colorpage {
+    -fx-fill:#9EC8B9;/* Couleur noire pour les icônes */
+}
+
+.icon-colorpage:hover {
+    -fx-fill:#1B4242; /* Couleur bleue au survol */
+}
+
+.icon-color {
+    -fx-fill: #000000; /* Couleur noire pour les icônes */
+}
+
+.icon-color:hover {
+    -fx-fill: #9EC8B9; /* Couleur bleue au survol */
+}
+
+.pane{
+-fx-background-color: #ffffff;
+-fx-background-radius: 0px 0px 30px 30px;
+-fx-border-radius: 0px 0px 30px 30px;
+}
+.pane2{
+-fx-background-color: #ffffff;
+-fx-background-radius: 30px 0px 0px 0px;
+-fx-border-radius: 30px 0px 0px 0px;
+}
+.btnc {
+    -fx-background-color: #176b87;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 50px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 50px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.btnc:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius:50px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 50px; /* Pas d'espace avant "px" */
+    -fx-text-fill: #176b87;
+    -fx-border-width: 2px;
+    -fx-border-color: #6cb9d3;
+    -fx-border-style: solid;
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;}
+
+.ti {
+    -fx-text-fill: #1B4242; /* Utilisez -fx-text-fill pour les éléments de texte */
+    -fx-font-family: 'Calibri'; /* Assurez-vous que 'Ebrima' est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 16px; /* Ajoutez la taille de la police si nécessaire */
+}
+
+.cardcolor {
+-fx-background-color: linear-gradient(to right,#092635,#447062);
+-fx-background-radius: 10px;
+}
+
+.cardcolor2{
+-fx-background-color: linear-gradient(to right,#990000,#F7A4A4);
+-fx-background-radius: 10px;
+}
+
+.textgras{
+    -fx-text-fill: #1B4242; /* Utilisez -fx-text-fill pour les éléments de texte */
+    -fx-font-family: 'Calibri'; /* Assurez-vous que 'Ebrima' est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px; /* Ajoutez la taille de la police si nécessaire */
+}
+
+.textcorp{
+-fx-text-fill: #ffffff; /* Utilisez -fx-text-fill pour les éléments de texte */
+    -fx-font-family: 'Calibri'; /* Assurez-vous que 'Ebrima' est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.textcorp2{
+-fx-text-fill: #4c4c4c; /* Utilisez -fx-text-fill pour les éléments de texte */
+    -fx-font-family: 'Calibri'; /* Assurez-vous que 'Ebrima' est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+.separator-style {
+    -fx-border-width: 0 0 4 0; /* Épaisseur de 2 pixels sur le côté inférieur uniquement */
+}
+
+
+
+.listview {
+    -fx-background-color: #1B4242; /* Couleur de fond pour le ListView */
+    -fx-background-radius: 10px; /* Rayon de l'arrondi pour le ListView */
+    -fx-padding: 10px; /* Padding pour le ListView */
+}
+
+.list-cell {
+    -fx-background-color: #1B4242; /* Couleur de fond pour chaque cellule */
+    -fx-background-insets: 0;
+    -fx-background-radius: 10px; /* Rayon de l'arrondi pour chaque cellule */
+    -fx-padding: 10px; /* Padding pour chaque cellule */
+    -fx-border-color: transparent; /* Rendre les bordures transparentes */
+    -fx-text-fill: #ffffff; /* Texte en blanc */
+    -fx-font-family: 'Calibri'; /* Police de caractères */
+     -fx-font-size: 12px;
+}
+
+.list-cell:even {
+    -fx-background-color: #5C8374; /* Couleur de fond plus claire pour une cellule sur deux */
+}
+
+.list-cell:filled:selected, .list-cell:filled:selected:hover {
+    -fx-background-color: #9EC8B9; /* Couleur de fond pour la cellule sélectionnée */
+}
+
+.contenuportefeuillepane1{
+-fx-background-radius: 30px;
+-fx-background-color: linear-gradient(to right,#030637,#141966);
+}
+.contenuportefeuillepane1et1{
+-fx-background-radius: 10px;
+-fx-background-color: #141966;
+}
+.contenuportefeuillepane2{
+-fx-background-radius: 30px;
+-fx-background-color: linear-gradient(to right,#3C0753,#691e8a);
+}
+.contenuportefeuillepane1et2{
+-fx-background-radius: 10px;
+-fx-background-color: #691e8a;
+}
+.contenuportefeuillepane3{
+-fx-background-radius: 30px;
+-fx-background-color: linear-gradient(to right,#720455,#910A67);
+}
+.contenuportefeuillepane1et3{
+-fx-background-radius: 10px;
+-fx-background-color: #910A67;
+}
+
+.iconescene2{
+ -fx-fill: #720455;
+}
+
+.icon-color2 {
+     -fx-fill: #000000; /* Couleur noire pour les icônes */
+ }
+
+ .icon-color2:hover {
+     -fx-fill: #720455; /* Couleur bleue au survol */
+ }
+
+ .icon-color3 {
+     -fx-fill: #000000; /* Couleur noire pour les icônes */
+ }
+
+ .icon-color3:hover {
+     -fx-fill: #525CEB; /* Couleur bleue au survol */
+ }
+ .iconescene3{
+  -fx-fill: #525CEB;
+ }
+
+.iconeblanc{
+-fx-fill:#ffffff;}
+
+.col7{
+-fx-text-fill:#720455; /* Utilisez -fx-text-fill pour les éléments de texte */
+-fx-font-family: 'Calibri'; /* Assurez-vous que 'Ebrima' est disponible */
+-fx-font-weight: bold;
+-fx-font-size: 16px;
+}
+
+.transbtn{
+-fx-background-color: transparent;}
+.transbtn:hover{
+-fx-background-color: transparent;}
+
+.panedetails{
+-fx-background-color: #ffffff;
+-fx-background-radius: 30px;
+-fx-border-radius: 30px;}
+
+.col8{
+-fx-text-fill: #525CEB;}
+
+.col9{
+-fx-text-fill: #B4D4FF;}
+
+.panedetails1{
+-fx-background-color: linear-gradient(to right,#11009E,#525CEB);
+-fx-background-radius: 30px;
+-fx-border-radius: 30px;}
+
+/* style.css */
+
+/* Style pour le fond transparent du graphique */
+.chart {
+    -fx-innner-background-color: -fx-background-color: linear-gradient(to right,#11009E,#525CEB);
+}
+
+/* Style pour les axes (en blanc) */
+.chart-axis {
+    -fx-stroke: white;
+}
+
+/* Style pour la ligne du graphique (en blanc) */
+.chart-series-line {
+    -fx-stroke: white;
+}
+
+.oo{
+-fx-opacity: 100%;
+}
+
+
+.panecrea{
+-fx-background-color: linear-gradient(to right,#22092C,#5e2f70);
+-fx-background-radius: 20px 20px 20px 20px;
+-fx-border-radius: 20px 20px 20px 20px;
+}
+
+.panecrea1{
+-fx-background-color: linear-gradient(to right,#872341,#bf2453);
+-fx-background-radius: 20px 20px 20px 20px;
+-fx-border-radius: 20px 20px 20px 20px;
+}
+
+.panecrea2{
+-fx-background-color: linear-gradient(to right,#F05941,#ff7d69);
+-fx-background-radius: 20px 20px 20px 20px;
+-fx-border-radius: 20px 20px 20px 20px;
+}
+
+.btnc2 {
+    -fx-background-color: #5e2f70;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.btnc2:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius:10px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 2px;
+    -fx-border-color: #ffffff;
+    -fx-border-style: solid;
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;}
+
+.btnc3 {
+    -fx-background-color: #bf2453;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.btnc3:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius:10px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 2px;
+    -fx-border-color: #ffffff;
+    -fx-border-style: solid;
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;}
+
+
+.btnc4 {
+    -fx-background-color: #ff7d69;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.btnc4:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius:10px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 2px;
+    -fx-border-color: #ffffff;
+    -fx-border-style: solid;
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;}
+
+.btncv {
+
+    -fx-background-color: transparent;
+        -fx-background-radius:10px; /* Pas d'espace avant "px" */
+        -fx-border-radius: 10px; /* Pas d'espace avant "px" */
+        -fx-text-fill: #000000;
+        -fx-border-width: 2px;
+        -fx-border-color: #000000;
+        -fx-border-style: solid;
+        -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+        -fx-font-weight: bold;
+        -fx-font-size: 16px;}
+
+
+.btncv:hover {
+-fx-background-color: #030637;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 10px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;}
+
+
+.iconecreascene{
+-fx-fill: #3C0753;
+}
+.col10{
+-fx-text-fill: #3C0753;
+}

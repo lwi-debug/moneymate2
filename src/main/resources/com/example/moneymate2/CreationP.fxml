@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.CreationPController">
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="77.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutY="16.0" prefHeight="39.0" prefWidth="78.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BARS" size="18" styleClass="icon-color3" text="" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="Dash" layoutY="190.0" prefHeight="39.0" prefWidth="78.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BANK" selectionFill="#429448" size="18" styleClass="iconecreascene" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="PorDet" layoutY="252.0" prefHeight="39.0" prefWidth="78.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="CREDIT_CARD" size="18" styleClass="icon-color3" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="evolution" layoutX="-2.0" layoutY="308.0" prefHeight="39.0" prefWidth="80.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SIGNAL" size="18" styleClass="icon-color2" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="setting" layoutX="1.0" layoutY="369.0" prefHeight="39.0" prefWidth="76.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="GEAR" size="20" styleClass="icon-color3" text="" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+         </children>
+         <stylesheets>
+            <URL value="@dashboardstyle.css" />
+            <URL value="@login.css" />
+         </stylesheets>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="286.0" prefWidth="522.0" style="-fx-background-color: f3f3f3;" styleClass="icon-color" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="50.0" prefHeight="564.0" prefWidth="842.0" styleClass="pane">
+               <children>
+                  <Label layoutX="23.0" layoutY="10.0" prefHeight="39.0" prefWidth="121.0" styleClass="col8" stylesheets="@dashboardstyle.css" textFill="#8fbfff">
+                     <font>
+                        <Font name="Calibri Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="708.0" layoutY="19.0" prefHeight="20.0" prefWidth="140.0" text="10 Janvier 2024" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="557.0" layoutY="149.0" prefHeight="20.0" prefWidth="285.0">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="19.0" prefHeight="20.0" prefWidth="285.0" styleClass="col10" text="Création d'un Nouveau Portefeuille">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="47.0" prefHeight="20.0" prefWidth="405.0" style="-fx-text-fill: C1C1C1;" text="Ajoutez des fond en remplissant le formulaire suivant  ">
+                     <font>
+                        <Font name="Ebrima" size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="21.0" layoutY="187.0" prefHeight="355.0" prefWidth="249.0" styleClass="panecrea">
+                     <children>
+                        <Label layoutX="74.0" layoutY="26.0" styleClass="cortt" text="Compte Courant">
+                           <font>
+                              <Font name="Candara Light" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="txtLiquideMontant" layoutX="41.0" layoutY="137.0" prefHeight="27.0" prefWidth="172.0" promptText="Solde de votre Compte" styleClass="ios-field2">
+                           <stylesheets>
+                              <URL value="@dashboardstyle.css" />
+                              <URL value="@login.css" />
+                           </stylesheets>
+                        </TextField>
+                        <JFXButton buttonType="RAISED" layoutX="74.0" layoutY="285.0" prefHeight="25.0" prefWidth="90.0" styleClass="btnc2" text="+" />
+                        <Pane layoutX="18.0" layoutY="18.0" prefHeight="39.0" prefWidth="41.0" styleClass="btnc2">
+                           <children>
+                              <FontAwesomeIconView glyphName="DOLLAR" layoutX="16.0" layoutY="24.0" size="16" styleClass="iconeblanc" text="" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="297.0" layoutY="187.0" prefHeight="355.0" prefWidth="249.0" styleClass="panecrea1">
+                     <children>
+                        <Label layoutX="74.0" layoutY="26.0" styleClass="cortt" text="Crypto-Monnaies">
+                           <font>
+                              <Font name="Candara Light" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="txtCryptoNom" layoutX="42.0" layoutY="108.0" prefHeight="27.0" prefWidth="172.0" promptText="Symbole Crypto" styleClass="ios-field2">
+                           <stylesheets>
+                              <URL value="@dashboardstyle.css" />
+                              <URL value="@login.css" />
+                           </stylesheets>
+                        </TextField>
+                        <TextField fx:id="txtCryptoQuantite" layoutX="42.0" layoutY="178.0" prefHeight="27.0" prefWidth="172.0" promptText="Quantité" styleClass="ios-field2">
+                           <stylesheets>
+                              <URL value="@dashboardstyle.css" />
+                              <URL value="@login.css" />
+                           </stylesheets>
+                        </TextField>
+                        <JFXButton layoutX="79.0" layoutY="298.0" prefHeight="25.0" prefWidth="90.0" text="+" />
+                        <JFXButton buttonType="RAISED" layoutX="82.0" layoutY="285.0" prefHeight="25.0" prefWidth="90.0" styleClass="btnc3" text="+" />
+                        <Pane layoutX="21.0" layoutY="18.0" prefHeight="39.0" prefWidth="41.0" styleClass="btnc3">
+                           <children>
+                              <FontAwesomeIconView glyphName="BITCOIN" layoutX="15.0" layoutY="25.0" size="16" styleClass="iconeblanc" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="573.0" layoutY="187.0" prefHeight="355.0" prefWidth="249.0" styleClass="panecrea2">
+                     <children>
+                        <Label layoutX="78.0" layoutY="33.0" styleClass="cortt" text="Actions Boursières">
+                           <font>
+                              <Font name="Candara Light" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="txtActionNom" layoutX="45.0" layoutY="108.0" prefHeight="27.0" prefWidth="172.0" promptText="Symbole Action" styleClass="ios-field2">
+                           <stylesheets>
+                              <URL value="@dashboardstyle.css" />
+                              <URL value="@login.css" />
+                           </stylesheets>
+                        </TextField>
+                        <TextField fx:id="txtActionQuantite" layoutX="45.0" layoutY="177.0" prefHeight="27.0" prefWidth="172.0" promptText="Quantité" styleClass="ios-field2">
+                           <stylesheets>
+                              <URL value="@dashboardstyle.css" />
+                              <URL value="@login.css" />
+                           </stylesheets>
+                        </TextField>
+                        <JFXButton layoutX="88.0" layoutY="294.0" prefHeight="25.0" prefWidth="90.0" text="+" />
+                        <JFXButton buttonType="RAISED" layoutX="88.0" layoutY="285.0" prefHeight="25.0" prefWidth="90.0" styleClass="btnc4" text="+" />
+                        <Pane layoutX="23.0" layoutY="23.0" prefHeight="39.0" prefWidth="41.0" styleClass="btnc4">
+                           <children>
+                              <FontAwesomeIconView glyphName="BRIEFCASE" layoutX="13.0" layoutY="25.0" size="16" styleClass="iconeblanc" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <JFXButton fx:id="boutoncreer" buttonType="RAISED" layoutX="177.0" layoutY="103.0" prefHeight="39.0" prefWidth="489.0" styleClass="btncv" text="Validez la céation de votre Portefeuille" />
+               </children>
+               <stylesheets>
+                  <URL value="@dashboardstyle.css" />
+                  <URL value="@login.css" />
+               </stylesheets>
+            </Pane>
+         </children>
+         <stylesheets>
+            <URL value="@login.css" />
+            <URL value="@dashboardstyle.css" />
+         </stylesheets>
+      </AnchorPane>
+   </center>
+</BorderPane>

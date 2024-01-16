@@ -1,0 +1,84 @@
+* {
+	-fx-primary-color: #176B87;
+	-fx-secondary-color: #4B6EAF;
+	-fx-grey-color: #b9b9b9;
+
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.text-field {
+	-fx-accent: -fx-primary-color;
+	-fx-background-color: -fx-grey-color, white;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-background-radius: 0;
+}
+
+.btnlog {
+    -fx-background-color: #176b87;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 50px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.btnlog:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius:50px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 50px; /* Pas d'espace avant "px" */
+    -fx-text-fill: #176b87;
+    -fx-border-width: 2px;
+    -fx-border-color: #6cb9d3;
+    -fx-border-style: solid;
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+}
+
+.ios-field {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #D7D6DC transparent; /* Bordure uniquement en bas */
+    -fx-border-width: 0 0 2px 0; /* Épaisseur de la bordure en bas */
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 4 7 4 15;
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+}
+
+.ios-field:focused {
+    -fx-border-color: transparent transparent #D7D6DC transparent; /* Maintient la bordure uniquement en bas lors de la focalisation */
+    -fx-border-width: 0 0 2px 0; /* Épaisseur de la bordure en bas lors de la focalisation */
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 4 7 4 15;
+}
+.ios-field:hover{
+-fx-text-fill :  #176b87;
+}
+
+.sign{
+-fx-text-fill: #6cb9d3;}
+
+.sign:hover{
+-fx-text-fill: #176b87;
+}
+
+.col1{
+-fx-text-fill: #fff;
+}
+.col2{
+-fx-text-fill: #176b87;
+}
+.col3{
+-fx-text-fill: #6cb9d3;;
+}
+
+.textgris{
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #D3D3D3;}
+}

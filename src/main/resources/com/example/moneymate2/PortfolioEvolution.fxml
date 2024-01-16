@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawersStack?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.PortfolioEvolutionController">
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="77.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutY="16.0" prefHeight="39.0" prefWidth="78.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BARS" size="18" styleClass="icon-color3" text="" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="Dash" layoutY="190.0" prefHeight="39.0" prefWidth="78.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BANK" selectionFill="#429448" size="18" styleClass="icon-color3" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="PorDet" layoutY="252.0" prefHeight="39.0" prefWidth="78.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="CREDIT_CARD" size="18" styleClass="icon-color3" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="-2.0" layoutY="308.0" prefHeight="39.0" prefWidth="80.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SIGNAL" size="18" styleClass="iconescene3" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="setting" layoutX="1.0" layoutY="369.0" prefHeight="39.0" prefWidth="76.0" text=" ">
+               <graphic>
+                  <FontAwesomeIconView glyphName="GEAR" size="20" styleClass="icon-color3" text="" wrappingWidth="18.300000190734863" />
+               </graphic>
+            </JFXButton>
+         </children>
+         <stylesheets>
+            <URL value="@dashboardstyle.css" />
+            <URL value="@login.css" />
+         </stylesheets>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="286.0" prefWidth="522.0" style="-fx-background-color: f3f3f3;" styleClass="icon-color" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="50.0" prefHeight="564.0" prefWidth="842.0" styleClass="pane">
+               <children>
+                  <Label layoutX="23.0" layoutY="10.0" prefHeight="39.0" prefWidth="121.0" styleClass="col8" stylesheets="@dashboardstyle.css" text="Portefeuille X" textFill="#8fbfff">
+                     <font>
+                        <Font name="Calibri Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="121.0" layoutY="20.0" prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: C1C1C1;" text="| ">
+                     <font>
+                        <Font name="Eras Medium ITC" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="708.0" layoutY="19.0" prefHeight="20.0" prefWidth="140.0" text="10 Janvier 2024" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="136.0" layoutY="19.0" prefHeight="20.0" prefWidth="285.0" text="0001 0002 2345 1234">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="82.0" prefHeight="20.0" prefWidth="285.0" style="-fx-text-fill: C1C2C3;" text="Montant  Total">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="115.0" prefHeight="20.0" prefWidth="285.0" text="\$ 11000.23 ">
+                     <font>
+                        <Font name="Ebrima Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="530.0" layoutY="197.0" orientation="VERTICAL" prefHeight="351.0" prefWidth="15.0" />
+                  <Label layoutX="557.0" layoutY="149.0" prefHeight="20.0" prefWidth="285.0" text="Cours des crypto-monnaies ">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="745.0" layoutY="150.0" prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: C1C1C1;" text="| ">
+                     <font>
+                        <Font name="Eras Medium ITC" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="761.0" layoutY="149.0" prefHeight="20.0" prefWidth="65.0" styleClass="col9" text="GekoCoin">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXListView layoutX="554.0" layoutY="197.0" prefHeight="351.0" prefWidth="272.0" />
+                  <JFXDrawersStack layoutX="17.0" layoutY="238.0" prefHeight="312.0" prefWidth="502.0" />
+                  <Pane layoutX="23.0" layoutY="194.0" prefHeight="355.0" prefWidth="501.0" styleClass="panedetails1">
+                     <children>
+                        <Label layoutX="25.0" layoutY="21.0" prefHeight="20.0" prefWidth="298.0" styleClass="col1" text="Evolution de votre portefeuille depuis sa création">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <BarChart alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="-3.0" layoutY="41.0" prefHeight="301.0" prefWidth="487.0" styleClass="oo">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </Pane>
+               </children>
+               <stylesheets>
+                  <URL value="@dashboardstyle.css" />
+                  <URL value="@login.css" />
+               </stylesheets>
+            </Pane>
+         </children>
+         <stylesheets>
+            <URL value="@login.css" />
+            <URL value="@dashboardstyle.css" />
+         </stylesheets>
+      </AnchorPane>
+   </center>
+</BorderPane>

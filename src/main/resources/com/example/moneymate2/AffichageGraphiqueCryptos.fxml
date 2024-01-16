@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.moneymate.Home"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+        <Button fx:id="boutonRetour" layoutX="14.0" layoutY="14.0" onAction="#retourarriere" text="Retour"/>
+        <TableView fx:id="tableView" layoutX="14.0" layoutY="65.0" prefHeight="477.0" prefWidth="772.0">
+            <columns>
+                <TableColumn fx:id="imageCol" prefWidth="100.0" text="Image"/>
+                <TableColumn fx:id="nameCol" prefWidth="100.0" text="Nom"/>
+                <TableColumn fx:id="symbolCol" prefWidth="100.0" text="Symbole"/>
+                <TableColumn fx:id="priceCol" prefWidth="100.0" text="Prix"/>
+                <TableColumn fx:id="marketCapCol" prefWidth="100.0" text="Capitalisation"/>
+                <TableColumn fx:id="last7dCol" prefWidth="100.0" text="Variation sur 7 jours"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
