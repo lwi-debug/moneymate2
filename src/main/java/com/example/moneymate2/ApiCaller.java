@@ -21,6 +21,7 @@ public class ApiCaller {
     private static Gson gson = null;
 
     public ApiCaller() {
+
         this.gson = new Gson();
     }
 
@@ -88,25 +89,30 @@ public class ApiCaller {
             return null;
         }
     }
-    public double getCryptoValue(String cryptoSymbol, String currency) { //currency c'est la devise si jamais genre USD, EUR, etc
+    public double getCryptoValue(String cryptoSymbol) {
         try {
             // Construire l'URL pour obtenir le cours de la crypto en direct
-            String url = BASE_URL + "/simple/price?ids=" + cryptoSymbol + "&vs_currencies=" + currency;
+            String url = BASE_URL + "/simple/price?ids=" + cryptoSymbol + "&vs_currencies=usd";
             String jsonResponse = makeApiCall(url);
 
             // Désérialiser la réponse JSON pour obtenir le prix de la crypto
-            Type mapType = new TypeToken<Map<String, Double>>() {}.getType();
-            Map<String, Double> cryptoPriceMap = gson.fromJson(jsonResponse, mapType);
+            Type mapType = new TypeToken<Map<String, Map<String, Double>>>() {}.getType();
+            Map<String, Map<String, Double>> cryptoPriceMap = gson.fromJson(jsonResponse, mapType);
 
             // Vérifier si la réponse contient la crypto demandée
             if (cryptoPriceMap.containsKey(cryptoSymbol.toLowerCase())) {
-                return cryptoPriceMap.get(cryptoSymbol.toLowerCase());
+                Map<String, Double> priceMap = cryptoPriceMap.get(cryptoSymbol.toLowerCase());
+                if (priceMap.containsKey("usd")) {
+                    return priceMap.get("usd");
+                } else {
+                    System.out.println("Le prix en USD n'a pas été trouvé dans la réponse JSON.");
+                    return -1;
+                }
             } else {
                 System.out.println("La crypto " + cryptoSymbol + " n'a pas été trouvée dans la réponse JSON.");
                 return -1;
             }
         } catch (Exception e) {
-
             e.printStackTrace();
             return -1;
         }
