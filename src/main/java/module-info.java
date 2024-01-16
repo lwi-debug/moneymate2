@@ -9,6 +9,7 @@ module com.example.moneymate {
     requires com.jfoenix;
     requires alphavantage.java;
     requires com.google.gson;
+    requires org.testng;
 
     opens com.example.moneymate2 to javafx.fxml;
     exports com.example.moneymate2;
