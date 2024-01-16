@@ -1,8 +1,15 @@
 package com.example.moneymate2;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class LoginController {
 
@@ -14,6 +21,8 @@ public class LoginController {
 
     @FXML
     private Button loginButton;
+    @FXML
+    public Label inscription;
 
     private GestionUtilisateur gestionUtilisateur;
 
@@ -22,7 +31,7 @@ public class LoginController {
     }
 
     @FXML
-    protected void onLoginButtonClick() {
+    protected void onLoginButtonClick(ActionEvent event) {
         String email = emailTextField.getText();
         String motDePasse = motDePasseTextField.getText();
 
@@ -30,9 +39,29 @@ public class LoginController {
 
         if (utilisateur != null) {
             System.out.println("Connexion réussie pour : " + email);
-            // Ici, tu peux continuer vers la page suivante ou effectuer d'autres actions
+            try {
+                FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com/example/moneymate2/Dashboard.fxml"));
+                Parent signUpRoot = loader.load();
+                Scene scene = loginButton.getScene();
+                Stage stage = (Stage) scene.getWindow();
+                stage.setScene(new Scene(signUpRoot));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             System.out.println("Erreur de connexion pour : " + email);
+        }
+    }
+    @FXML
+    void  AfficherInscription(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com/example/moneymate2/SignUp.fxml"));
+            Parent signUpRoot = loader.load();
+            Scene scene = inscription.getScene();
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(signUpRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

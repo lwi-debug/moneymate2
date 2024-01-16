@@ -124,7 +124,7 @@
                         <Font name="Calibri Bold" size="14.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="Portefeuillecreation" buttonType="RAISED" layoutX="24.0" layoutY="99.0" prefHeight="38.0" prefWidth="105.0" styleClass="btncrea" text="+" />
+                  <JFXButton fx:id="Portefeuillecreation" buttonType="RAISED" layoutX="24.0" layoutY="99.0" onMouseClicked="#affichercreaportefeuil" prefHeight="38.0" prefWidth="105.0" styleClass="btncrea" text="+" />
                </children>
                <stylesheets>
                   <URL value="@dashboardstyle.css" />
