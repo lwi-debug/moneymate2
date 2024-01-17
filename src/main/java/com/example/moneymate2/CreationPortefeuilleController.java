@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
+
 public class CreationPortefeuilleController {
     @FXML
     public JFXButton Dash;
@@ -83,18 +85,24 @@ public class CreationPortefeuilleController {
         } else {
             System.out.println("Le portefeuille est vide.");
         }
+        portefeuille.calculerValeurTotalePortefeuille();
         afficherContenuPortefeuille(portefeuille);
+        sauvegarderPortefeuille(portefeuille);
+
     }
     private void afficherContenuPortefeuille(Portefeuille1 portefeuille) {
         double totalLiquidites = portefeuille.valeurTotaleLiquidites();
         double totalCryptos = portefeuille.valeurTotaleCryptos();
         double totalActions = portefeuille.valeurTotaleActions();
+        double valeurTotalePortefeuille = portefeuille.getValeurTotalePortefeuille();
 
         System.out.println("Contenu du portefeuille créé (ID: " + portefeuille.getIdentifiant() + ") :");
-        System.out.println("Total Liquidités: " + totalLiquidites + currency);
-        System.out.println("Valeur totale des Cryptos: " + totalCryptos + currency);
-        System.out.println("Valeur totale des Actions: " + totalActions + currency);
+        System.out.println("Total Liquidités: " + totalLiquidites + " " + currency);
+        System.out.println("Valeur totale des Cryptos: " + totalCryptos + " " + currency);
+        System.out.println("Valeur totale des Actions: " + totalActions + " " + currency);
+        System.out.println("Valeur totale du Portefeuille: " + valeurTotalePortefeuille + " " + currency);
     }
+
     @FXML
     void  affichersetting(MouseEvent event) {
         try {
@@ -163,6 +171,13 @@ public class CreationPortefeuilleController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void sauvegarderPortefeuille(Portefeuille1 portefeuille) {
+        // Ajoutez la logique nécessaire pour récupérer l'email de l'utilisateur connecté
+        String emailUtilisateur = utilisateurConnecte.getEmail();
+
+        // Sauvegarder le portefeuille dans le CSV
+        CSVPortefeuilleManager.sauvegarderPortefeuilles(Arrays.asList(portefeuille), emailUtilisateur);
     }
 
 }

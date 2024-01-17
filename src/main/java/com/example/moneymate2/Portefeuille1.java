@@ -11,6 +11,8 @@ public class Portefeuille1 {
     private List<Crypto1> cryptos;
     private List<Action1> actions;
 
+    private double valeurTotalePortefeuille;
+
     public Portefeuille1() {
         this.identifiant = genererId();
         this.liquidites = new ArrayList<>();
@@ -80,6 +82,17 @@ public class Portefeuille1 {
             }
         }
         return total;
+    }
+    public void calculerValeurTotalePortefeuille() {
+        double totalLiquidites = valeurTotaleLiquidites();
+        double totalCryptos = valeurTotaleCryptos();
+        double totalActions = valeurTotaleActions();
+
+        this.valeurTotalePortefeuille = totalLiquidites + totalCryptos + totalActions;
+    }
+
+    public double getValeurTotalePortefeuille() {
+        return valeurTotalePortefeuille;
     }
 
     // Méthode pour ajouter une action

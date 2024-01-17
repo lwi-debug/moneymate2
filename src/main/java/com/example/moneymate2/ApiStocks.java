@@ -19,10 +19,38 @@ public class ApiStocks {
 
         // Make API request and parse JSON response
         JSONObject stockData = getStockData(apiUrl);
-        String lastRefreshed = stockData.getJSONObject("Meta Data").getString("3. Last Refreshed");
-        double latestPrice = stockData.getJSONObject("Time Series (1min)")
-                .getJSONObject(lastRefreshed)
-                .getDouble("4. close");
+
+        if (!stockData.has("Meta Data")) {
+            System.out.println("Crypto '" + stockSymbol + "' non trouvée. Meta Data absente.");
+            return 0;
+        }
+
+        String lastRefreshed;
+        try {
+            lastRefreshed = stockData.getJSONObject("Meta Data").getString("3. Last Refreshed");
+        } catch (Exception e) {
+            System.out.println("Erreur lors de l'obtention des dernières données actualisées pour '" + stockSymbol + "': " + e.getMessage());
+            return 0;
+        }
+
+        if (!stockData.has("Time Series (1min)")) {
+            System.out.println("Série temporelle manquante pour '" + stockSymbol + "'.");
+            return 0;
+        }
+
+        JSONObject timeSeriesData = stockData.getJSONObject("Time Series (1min)");
+        if (!timeSeriesData.has(lastRefreshed)) {
+            System.out.println("Aucune donnée trouvée pour la dernière actualisation pour '" + stockSymbol + "'.");
+            return 0;
+        }
+
+        double latestPrice;
+        try {
+            latestPrice = timeSeriesData.getJSONObject(lastRefreshed).getDouble("4. close");
+        } catch (Exception e) {
+            System.out.println("Erreur lors de l'obtention du dernier prix pour '" + stockSymbol + "': " + e.getMessage());
+            return 0;
+        }
 
         return latestPrice;
     }

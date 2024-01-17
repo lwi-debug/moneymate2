@@ -25,36 +25,41 @@ public class CSVPortefeuilleManager {
     private static Portefeuille1 convertirEnPortefeuille(String ligneCsv) {
         String[] data = ligneCsv.split(",");
 
-        if (data.length < 5) {
-            // Gérer l'erreur ou retourner null si la ligne n'est pas valide
+        if (data.length < 6) {
             System.out.println("Ligne CSV invalide: " + ligneCsv);
             return null;
         }
 
         String emailUtilisateur = data[0];
         String identifiant = data[1];
-        double valeurTotaleLiquidites;
-        double valeurTotaleCryptos;
-        double valeurTotaleActions;
+        double valeurTotalePortefeuille, valeurTotaleLiquidites, valeurTotaleCryptos, valeurTotaleActions;
 
         try {
-            valeurTotaleLiquidites = Double.parseDouble(data[2]);
-            valeurTotaleCryptos = Double.parseDouble(data[3]);
-            valeurTotaleActions = Double.parseDouble(data[4]);
+            valeurTotalePortefeuille = Double.parseDouble(data[2]);
+            valeurTotaleLiquidites = Double.parseDouble(data[3]);
+            valeurTotaleCryptos = Double.parseDouble(data[4]);
+            valeurTotaleActions = Double.parseDouble(data[5]);
         } catch (NumberFormatException e) {
-            // Gérer l'erreur de conversion
             System.out.println("Erreur lors de la conversion des données numériques: " + e.getMessage());
             return null;
         }
 
-        // Créer le portefeuille avec les données extraites
         Portefeuille1 portefeuille = new Portefeuille1();
         portefeuille.setIdentifiant(identifiant);
-        // Note: Vous devez gérer la façon d'ajouter les liquidités, cryptos, et actions dans le portefeuille
+        // Ici, ajoutez la logique pour ajouter les liquidités, cryptos et actions selon les valeurs lues
+        // Remarque : Vous devez établir une correspondance entre les données du CSV et la structure de votre portefeuille
 
-        // Retourner le portefeuille peuplé
+        // Après avoir ajouté les liquidités, cryptos et actions, calculez la valeur totale pour vérifier la cohérence
+        portefeuille.calculerValeurTotalePortefeuille();
+
+        // Vérifiez si la valeur totale calculée correspond à celle lue du CSV
+        if (valeurTotalePortefeuille != portefeuille.getValeurTotalePortefeuille()) {
+            System.out.println("Incohérence des données : La valeur totale du portefeuille ne correspond pas.");
+        }
+
         return portefeuille;
     }
+
 
 
     public static List<Portefeuille1> chargerPortefeuilles(String emailUtilisateur) {
@@ -70,12 +75,17 @@ public class CSVPortefeuilleManager {
         return portefeuilles;
     }
     private static String convertirEnCSV(Portefeuille1 portefeuille, String emailUtilisateur) {
+        double valeurTotalePortefeuille = portefeuille.getValeurTotalePortefeuille();
         double valeurTotaleLiquidites = portefeuille.valeurTotaleLiquidites();
         double valeurTotaleCryptos = portefeuille.valeurTotaleCryptos();
         double valeurTotaleActions = portefeuille.valeurTotaleActions();
 
-        return emailUtilisateur + "," + portefeuille.getIdentifiant() + ","
-                + valeurTotaleLiquidites + "," + valeurTotaleCryptos + "," + valeurTotaleActions;
+        return emailUtilisateur + "," +
+                portefeuille.getIdentifiant() + "," +
+                valeurTotalePortefeuille + "," +
+                valeurTotaleLiquidites + "," +
+                valeurTotaleCryptos + "," +
+                valeurTotaleActions;
     }
 }
 
