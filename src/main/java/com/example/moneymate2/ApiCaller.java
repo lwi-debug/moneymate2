@@ -34,17 +34,28 @@ public class ApiCaller {
         String url = BASE_URL + "/coins/markets?vs_currency=" + currency + "&order=" + order + "&per_page=" + limit + "&page=" + page + "&sparkline=" + sparkline
                 + "&price_change_percentage=" + priceChangePercentage + "&locale=" + locale;
         String jsonResponse = makeApiCall(url);
-        Type listType = new TypeToken<List<CoursCryptos>>() {}.getType();
+        //Type listType = new TypeToken<List<CoursCryptos>>() {}.getType();
 
+        List<CoursCryptos> cryptos = null;
+        System.out.println("Cryptos after deserialization: " + cryptos);
 
         System.out.println("JSON Response from API: " + jsonResponse);
 
-        List<CoursCryptos> cryptos = gson.fromJson(jsonResponse, listType);
+        //List<CoursCryptos> cryptos = gson.fromJson(jsonResponse, listType);
 
 
+
+        Type listType = new TypeToken<List<CoursCryptos>>() {
+        }.getType();
+        cryptos = gson.fromJson(jsonResponse, listType);
+
+        // Ajoutez des impressions pour voir les données récupérées
+        System.out.println("JSON Response from API: " + jsonResponse);
         System.out.println("Cryptos after deserialization: " + cryptos);
 
         return cryptos;
+
+
     }
 
 

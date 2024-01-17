@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDrawersStack?>
-<?import com.jfoenix.controls.JFXListView?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import java.net.URL?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.PortfolioEvolutionController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.PortfolioEvolutionController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="77.0" styleClass="sidebar" BorderPane.alignment="CENTER">
          <children>
@@ -102,7 +95,6 @@
                         <Font name="Calibri Bold" size="14.0" />
                      </font>
                   </Label>
-                  <JFXListView layoutX="554.0" layoutY="197.0" prefHeight="351.0" prefWidth="272.0" />
                   <JFXDrawersStack layoutX="17.0" layoutY="238.0" prefHeight="312.0" prefWidth="502.0" />
                   <Pane layoutX="23.0" layoutY="194.0" prefHeight="355.0" prefWidth="501.0" styleClass="panedetails1">
                      <children>
@@ -121,6 +113,25 @@
                         </BarChart>
                      </children>
                   </Pane>
+                  <TableView layoutX="542.0" layoutY="196.0" prefHeight="353.0" prefWidth="288.0">
+                     <columns>
+                        <TableColumn text="Crypto" prefWidth="100">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="name" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Symbol" prefWidth="80">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="symbol" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Value" prefWidth="100">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="currentPrice" />
+                           </cellValueFactory>
+                        </TableColumn>
+                     </columns>
+                  </TableView>
                </children>
                <stylesheets>
                   <URL value="@dashboardstyle.css" />
