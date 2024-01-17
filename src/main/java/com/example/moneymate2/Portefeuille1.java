@@ -95,6 +95,21 @@ public class Portefeuille1 {
         return valeurTotalePortefeuille;
     }
 
+    public double pourcentageValeurLiquidites() {
+        if (valeurTotalePortefeuille == 0) return 0;
+        return Math.round((valeurTotaleLiquidites() / valeurTotalePortefeuille) * 100 * 100.0) / 100.0;
+    }
+
+    public double pourcentageValeurCryptos() {
+        if (valeurTotalePortefeuille == 0) return 0;
+        return Math.round((valeurTotaleCryptos() / valeurTotalePortefeuille) * 100 * 100.0) / 100.0;
+    }
+
+    public double pourcentageValeurActions() {
+        if (valeurTotalePortefeuille == 0) return 0;
+        return Math.round((valeurTotaleActions() / valeurTotalePortefeuille) * 100 * 100.0) / 100.0;
+    }
+
     // Méthode pour ajouter une action
     public void ajouterAction(Action1 action) {
         this.actions.add(action);
