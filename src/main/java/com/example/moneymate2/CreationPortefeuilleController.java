@@ -96,10 +96,14 @@ public class CreationPortefeuilleController {
         double totalActions = portefeuille.valeurTotaleActions();
         double valeurTotalePortefeuille = portefeuille.getValeurTotalePortefeuille();
 
+        double pourcentageLiquidites = portefeuille.pourcentageValeurLiquidites();
+        double pourcentageCryptos = portefeuille.pourcentageValeurCryptos();
+        double pourcentageActions = portefeuille.pourcentageValeurActions();
+
         System.out.println("Contenu du portefeuille créé (ID: " + portefeuille.getIdentifiant() + ") :");
-        System.out.println("Total Liquidités: " + totalLiquidites + " " + currency);
-        System.out.println("Valeur totale des Cryptos: " + totalCryptos + " " + currency);
-        System.out.println("Valeur totale des Actions: " + totalActions + " " + currency);
+        System.out.println("Total Liquidités: " + totalLiquidites + " " + currency + " (" + pourcentageLiquidites + "% du total)");
+        System.out.println("Valeur totale des Cryptos: " + totalCryptos + " " + currency + " (" + pourcentageCryptos + "% du total)");
+        System.out.println("Valeur totale des Actions: " + totalActions + " " + currency + " (" + pourcentageActions + "% du total)");
         System.out.println("Valeur totale du Portefeuille: " + valeurTotalePortefeuille + " " + currency);
     }
 
