@@ -131,6 +131,7 @@ public class CreationPortefeuilleController {
             PortfolioDetailsController detailController = loader.getController();
             detailController.setUtilisateurConnecte(this.utilisateurConnecte);
             detailController.setGestionUtilisateur(this.gestionUtilisateur);
+            detailController.updateData();
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));

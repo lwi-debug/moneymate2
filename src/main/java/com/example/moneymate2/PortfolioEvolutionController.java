@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -18,6 +19,8 @@ public class PortfolioEvolutionController {
 
     @FXML
     public JFXButton Dash;
+    @FXML
+    private Label liquidites;
 
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
@@ -74,6 +77,7 @@ public class PortfolioEvolutionController {
             PortfolioDetailsController detailController = loader.getController();
             detailController.setUtilisateurConnecte(this.utilisateurConnecte);
             detailController.setGestionUtilisateur(this.gestionUtilisateur);
+            detailController.updateData();
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));

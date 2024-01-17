@@ -7,6 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
+
+import static java.lang.String.format;
 
 public class PortfolioDetailsController {
     @FXML
@@ -15,8 +18,11 @@ public class PortfolioDetailsController {
     public JFXButton Dash;
     @FXML
     public JFXButton evolution;
+    @FXML
+    private Label liquidites;
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
+
     public PortfolioDetailsController() {
         gestionUtilisateur = new GestionUtilisateur();
     }
@@ -37,8 +43,6 @@ public class PortfolioDetailsController {
             setController.setUtilisateurConnecte(this.utilisateurConnecte);
             setController.setGestionUtilisateur(this.gestionUtilisateur);
 
-
-
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
@@ -56,7 +60,6 @@ public class PortfolioDetailsController {
             DashboardController dashController = loader.getController();
             dashController.setUtilisateurConnecte(this.utilisateurConnecte);
             dashController.setGestionUtilisateur(this.gestionUtilisateur);
-
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
@@ -81,6 +84,11 @@ public class PortfolioDetailsController {
         }
     }
 
+    public void updateData(){
+
+        this.liquidites.setText("$ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getLiquidites().get(0).getMontant()));
+
+    }
     public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
     }
 }

@@ -1,5 +1,6 @@
 package com.example.moneymate2;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +31,25 @@ public class Portefeuille1 {
         return identifiant;
     }
 
+    public List<Liquidité1> getLiquidites() {
+        return liquidites;
+    }
+
+    public List<Crypto1> getCryptos() {
+        return cryptos;
+    }
+
+    public List<Action1> getActions() {
+        return actions;
+    }
+
+    public double getValeurTotalePortefeuille() {
+        return valeurTotalePortefeuille;
+    }
+
     public boolean estVide() {
         return liquidites.isEmpty() && cryptos.isEmpty() && actions.isEmpty();
     }
-
-
-
 
     public double valeurTotaleLiquidites() {
         double total = 0;
@@ -89,10 +103,6 @@ public class Portefeuille1 {
         double totalActions = valeurTotaleActions();
 
         this.valeurTotalePortefeuille = totalLiquidites + totalCryptos + totalActions;
-    }
-
-    public double getValeurTotalePortefeuille() {
-        return valeurTotalePortefeuille;
     }
 
     // Méthode pour ajouter une action
