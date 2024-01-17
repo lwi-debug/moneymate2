@@ -13,15 +13,31 @@ public class PortfolioEvolutionController {
     private JFXButton setting;
     @FXML
     private JFXButton PorDet;
+    private Utilisateur1 utilisateurConnecte;
+    private GestionUtilisateur gestionUtilisateur;
 
     @FXML
     public JFXButton Dash;
+
+    public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
+        this.utilisateurConnecte = utilisateur;
+    }
+
+    public void setGestionUtilisateur(GestionUtilisateur gestion) {
+        this.gestionUtilisateur = gestion;
+    }
+
+
     @FXML
     void affichersetting(MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Settings.fxml"));
             Parent settingsRoot = loader.load();
             Scene scene = setting.getScene();
+
+            SettingsController setController = loader.getController();
+            setController.setUtilisateurConnecte(this.utilisateurConnecte);
+            setController.setGestionUtilisateur(this.gestionUtilisateur);
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
@@ -37,6 +53,11 @@ public class PortfolioEvolutionController {
             Parent settingsRoot = loader.load();
             Scene scene = Dash.getScene();
 
+            DashboardController dashController = loader.getController();
+            dashController.setUtilisateurConnecte(this.utilisateurConnecte);
+            dashController.setGestionUtilisateur(this.gestionUtilisateur);
+
+
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
@@ -50,10 +71,16 @@ public class PortfolioEvolutionController {
             Parent settingsRoot = loader.load();
             Scene scene = PorDet.getScene();
 
+            PortfolioDetailsController detailController = loader.getController();
+            detailController.setUtilisateurConnecte(this.utilisateurConnecte);
+            detailController.setGestionUtilisateur(this.gestionUtilisateur);
+
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 }

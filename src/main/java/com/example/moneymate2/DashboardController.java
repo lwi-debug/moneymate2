@@ -34,6 +34,10 @@ public class DashboardController {
     @FXML
     private ListView<String> Actu;
 
+    public DashboardController() {
+        gestionUtilisateur = new GestionUtilisateur();
+    }
+
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
         this.gestionUtilisateur = new GestionUtilisateur(); // Initialisation de gestionUtilisateur
@@ -87,6 +91,10 @@ public class DashboardController {
             Parent settingsRoot = loader.load();
             Scene scene = PorDet.getScene();
 
+            PortfolioDetailsController detailController = loader.getController();
+            detailController.setUtilisateurConnecte(this.utilisateurConnecte);
+            detailController.setGestionUtilisateur(this.gestionUtilisateur);
+
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
@@ -99,6 +107,11 @@ public class DashboardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Settings.fxml"));
             Parent settingsRoot = loader.load();
             Scene scene = setting.getScene();
+
+            SettingsController setController = loader.getController();
+            setController.setUtilisateurConnecte(this.utilisateurConnecte);
+            setController.setGestionUtilisateur(this.gestionUtilisateur);
+
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
@@ -113,6 +126,10 @@ public class DashboardController {
             Parent settingsRoot = loader.load();
             Scene scene = evolution.getScene();
 
+            PortfolioEvolutionController evolController = loader.getController();
+            evolController.setUtilisateurConnecte(this.utilisateurConnecte);
+            evolController.setGestionUtilisateur(this.gestionUtilisateur);
+
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
@@ -120,6 +137,8 @@ public class DashboardController {
         }
     }
 
+    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
+    }
 }
 
 

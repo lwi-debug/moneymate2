@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="735.0" prefWidth="1000.0" stylesheets="@Setting.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.SettingsController">
+<AnchorPane prefHeight="735.0" prefWidth="1000.0" stylesheets="@Setting.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.SettingsController">
    <children>
       <Pane prefHeight="735.0" prefWidth="500.0" style="-fx-background-color: #6cb9d3;">
          <children>
@@ -78,6 +78,7 @@
                   <Font name="Impact" size="24.0" />
                </font>
             </Label>
+            <Button fx:id="dash" layoutX="364.0" layoutY="58.0" mnemonicParsing="false" onAction="#dashboard" text="retour" />
          </children>
       </Pane>
    </children>

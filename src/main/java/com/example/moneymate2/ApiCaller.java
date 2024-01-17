@@ -20,6 +20,11 @@ public class ApiCaller {
 
     private static Gson gson = null;
 
+    private static String currency = "usd";//par default
+    public static void setCurrency(String newCurrency) {
+        currency = newCurrency;
+    }
+
     public ApiCaller() {
 
         this.gson = new Gson();
@@ -92,7 +97,7 @@ public class ApiCaller {
     public double getCryptoValue(String cryptoSymbol) {
         try {
             // Construire l'URL pour obtenir le cours de la crypto en direct
-            String url = BASE_URL + "/simple/price?ids=" + cryptoSymbol + "&vs_currencies=usd";
+            String url = BASE_URL + "/simple/price?ids=" + cryptoSymbol + "&vs_currencies="+ currency;
             String jsonResponse = makeApiCall(url);
 
             // Désérialiser la réponse JSON pour obtenir le prix de la crypto
@@ -102,8 +107,8 @@ public class ApiCaller {
             // Vérifier si la réponse contient la crypto demandée
             if (cryptoPriceMap.containsKey(cryptoSymbol.toLowerCase())) {
                 Map<String, Double> priceMap = cryptoPriceMap.get(cryptoSymbol.toLowerCase());
-                if (priceMap.containsKey("usd")) {
-                    return priceMap.get("usd");
+                if (priceMap.containsKey(currency)) {
+                    return priceMap.get(currency);
                 } else {
                     System.out.println("Le prix en USD n'a pas été trouvé dans la réponse JSON.");
                     return -1;

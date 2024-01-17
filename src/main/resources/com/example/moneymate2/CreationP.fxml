@@ -150,7 +150,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <JFXButton fx:id="creerPortefeuilleButton" buttonType="RAISED" layoutX="177.0" layoutY="103.0" onAction="#onCreerPortefeuilleButtonClick" prefHeight="39.0" prefWidth="489.0" styleClass="btncv" text="Validez la céation de votre Portefeuille" />
+                  <JFXButton fx:id="creerPortefeuilleButton" buttonType="RAISED" layoutX="177.0" layoutY="103.0" onAction="#onCreerPortefeuilleButtonClick" prefHeight="39.0" prefWidth="489.0" styleClass="btncv" text="Validez la création de votre Portefeuille" />
                </children>
                <stylesheets>
                   <URL value="@dashboardstyle.css" />

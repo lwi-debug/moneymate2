@@ -41,9 +41,14 @@ public class CreationPortefeuilleController {
         this.gestionUtilisateur = gestion;
     }
 
+
     public CreationPortefeuilleController() {
         // Constructeur par défaut
     }
+    private static String currency = "usd";//par default
+    public static void setCurrency(String newCurrency) {
+        currency = newCurrency;}
+
 
 
     @FXML
@@ -86,9 +91,9 @@ public class CreationPortefeuilleController {
         double totalActions = portefeuille.valeurTotaleActions();
 
         System.out.println("Contenu du portefeuille créé (ID: " + portefeuille.getIdentifiant() + ") :");
-        System.out.println("Total Liquidités: " + totalLiquidites + " EUR");
-        System.out.println("Valeur totale des Cryptos: " + totalCryptos + " EUR");
-        System.out.println("Valeur totale des Actions: " + totalActions + " EUR");
+        System.out.println("Total Liquidités: " + totalLiquidites + currency);
+        System.out.println("Valeur totale des Cryptos: " + totalCryptos + currency);
+        System.out.println("Valeur totale des Actions: " + totalActions + currency);
     }
     @FXML
     void  affichersetting(MouseEvent event) {
@@ -96,6 +101,11 @@ public class CreationPortefeuilleController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Settings.fxml"));
             Parent settingsRoot = loader.load();
             Scene scene = setting.getScene();
+
+            SettingsController setController = loader.getController();
+            setController.setUtilisateurConnecte(this.utilisateurConnecte);
+            setController.setGestionUtilisateur(this.gestionUtilisateur);
+
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
@@ -110,6 +120,10 @@ public class CreationPortefeuilleController {
             Parent settingsRoot = loader.load();
             Scene scene = PorDet.getScene();
 
+            PortfolioDetailsController detailController = loader.getController();
+            detailController.setUtilisateurConnecte(this.utilisateurConnecte);
+            detailController.setGestionUtilisateur(this.gestionUtilisateur);
+
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
@@ -121,8 +135,12 @@ public class CreationPortefeuilleController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Dashboard.fxml"));
             Parent settingsRoot = loader.load();
-            Scene scene = Dash.getScene();
 
+            DashboardController dashController = loader.getController();
+            dashController.setUtilisateurConnecte(this.utilisateurConnecte);
+            dashController.setGestionUtilisateur(this.gestionUtilisateur);
+
+            Scene scene = Dash.getScene();
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {
@@ -135,6 +153,10 @@ public class CreationPortefeuilleController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioEvolution.fxml"));
             Parent settingsRoot = loader.load();
             Scene scene = evolution.getScene();
+
+            PortfolioEvolutionController evolController = loader.getController();
+            evolController.setUtilisateurConnecte(this.utilisateurConnecte);
+            evolController.setGestionUtilisateur(this.gestionUtilisateur);
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));

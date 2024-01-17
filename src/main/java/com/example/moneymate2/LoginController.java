@@ -50,6 +50,7 @@ public class LoginController {
 
                 // Récupérer le contrôleur du tableau de bord et définir l'utilisateur connecté
                 DashboardController dashboardController = loader.getController();
+
                 dashboardController.setUtilisateurConnecte(utilisateur);
 
 
