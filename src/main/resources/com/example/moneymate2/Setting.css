@@ -82,3 +82,15 @@
     -fx-font-size: 14px;
     -fx-text-fill: #D3D3D3;}
 }
+
+.choice-box {
+    -fx-font-family: 'Ebrima';       /* Police Ebrima */
+    -fx-font-size: 14px;             /* Taille de police 14px */
+    -fx-font-weight: bold;           /* Police en gras */
+    -fx-background-color: transparent; /* Fond transparent */
+    -fx-border-color: #5C8374;       /* Couleur des contours #5C8374 */
+    -fx-border-width: 2px;           /* Largeur des contours */
+    -fx-border-radius: 10px;         /* Radius des contours */
+    -fx-text-fill: #5C8374;          /* Couleur du texte */
+    -fx-background-radius: 10px;     /* Radius du fond */
+}

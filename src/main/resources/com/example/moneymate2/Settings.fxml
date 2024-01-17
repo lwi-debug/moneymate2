@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +13,7 @@
 
 <AnchorPane prefHeight="735.0" prefWidth="1000.0" stylesheets="@Setting.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.SettingsController">
    <children>
-      <Pane prefHeight="735.0" prefWidth="500.0" style="-fx-background-color: #6cb9d3;">
+      <Pane prefHeight="737.0" prefWidth="500.0" styleClass="panelog">
          <children>
             <ImageView fitHeight="348.0" fitWidth="258.0" layoutX="127.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,15 +31,15 @@
                </font>
             </Label>
          </children>
+         <stylesheets>
+            <URL value="@dashboardstyle.css" />
+            <URL value="@login.css" />
+            <URL value="@Setting.css" />
+         </stylesheets>
       </Pane>
-      <Pane layoutX="500.0" layoutY="2.0" prefHeight="735.0" prefWidth="500.0" style="-fx-background-color: ffffff;" stylesheets="@Setting.css">
+      <Pane layoutX="500.0" layoutY="2.0" prefHeight="735.0" prefWidth="500.0" style="-fx-background-color: ffffff;">
          <children>
-            <ImageView fitHeight="109.0" fitWidth="116.0" layoutX="71.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@setticon.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="185.0" layoutY="108.0" styleClass="col2" stylesheets="@login.css" text="Paramètres" textFill="#0d5168">
+            <Label layoutX="162.0" layoutY="167.0" styleClass="col3" stylesheets="@login.css" text="Paramètres" textFill="#0d5168">
                <font>
                   <Font name="Impact" size="36.0" />
                </font>
@@ -47,39 +49,54 @@
                   <Font name="Ebrima Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="202.0" layoutY="442.0" styleClass="sign" stylesheets="@login.css" textFill="#6cb9d3">
+            <Label layoutX="202.0" layoutY="412.0" styleClass="sign" stylesheets="@login.css" textFill="#6cb9d3">
                <font>
                   <Font name="Ebrima Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="92.0" layoutY="518.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="316.0" styleClass="btnlog" stylesheets="@login.css" text="Déconnexion">
+            <Button layoutX="100.0" layoutY="508.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="316.0" styleClass="btnlog" stylesheets="@login.css" text="Déconnexion">
                <font>
                   <Font name="Ebrima Bold" size="14.0" />
                </font>
             </Button>
-            <ImageView fitHeight="63.0" fitWidth="71.0" layoutX="358.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="63.0" fitWidth="71.0" layoutX="217.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@iconfr.png" />
                </image>
             </ImageView>
-            <Label layoutX="92.0" layoutY="306.0" text="Langue">
+            <Label layoutX="156.0" layoutY="264.0" styleClass="col3" text="Choisissez votre langue :">
                <font>
-                  <Font name="Impact" size="24.0" />
+                  <Font name="Ebrima Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="92.0" layoutY="390.0" text="Monnaie :">
+            <Label layoutX="125.0" layoutY="391.0" styleClass="col3" text="Monnaie :">
                <font>
-                  <Font name="Impact" size="24.0" />
+                  <Font name="Ebrima Bold" size="16.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="myChoicebox" layoutX="293.0" layoutY="439.0" prefWidth="150.0" />
-            <Label fx:id="mylabel" layoutX="202.0" layoutY="390.0" text="Selectionner la monnaie">
+            <ChoiceBox fx:id="myChoicebox" layoutX="222.0" layoutY="430.0" prefHeight="32.0" prefWidth="51.0" stylesheets="@Setting.css" />
+            <Label fx:id="mylabel" layoutX="209.0" layoutY="391.0" styleClass="col3" text="Selectionner une Devise">
                <font>
-                  <Font name="Impact" size="24.0" />
+                  <Font name="Ebrima Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="dash" layoutX="364.0" layoutY="58.0" mnemonicParsing="false" onAction="#dashboard" text="retour" />
+            <FontAwesomeIconView glyphName="COG" layoutX="222.0" layoutY="152.0" size="60" styleClass="iconcol" text="" />
+            <Button fx:id="dash" layoutX="100.0" layoutY="599.0" mnemonicParsing="false" onAction="#dashboard" prefHeight="51.0" prefWidth="316.0" styleClass="btnlog" stylesheets="@login.css" text="Revenir a l'Acceuil">
+               <font>
+                  <Font name="Ebrima Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="mylabel1" layoutX="240.0" layoutY="566.0" styleClass="col4" text="ou">
+               <font>
+                  <Font name="Ebrima Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
+         <stylesheets>
+            <URL value="@Setting.css" />
+            <URL value="@dashboardstyle.css" />
+            <URL value="@login.css" />
+         </stylesheets>
       </Pane>
    </children>
 </AnchorPane>
