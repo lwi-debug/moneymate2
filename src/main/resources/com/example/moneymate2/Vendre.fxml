@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="1024.0" styleClass="col9" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.Vendre">
+<AnchorPane prefHeight="600.0" prefWidth="1024.0" styleClass="col9" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moneymate2.VendreController">
    <children>
       <Pane layoutX="16.0" layoutY="17.0" prefHeight="567.0" prefWidth="993.0" style="-fx-background-color: f3f3f3;" styleClass="listview" stylesheets="@dashboardstyle.css">
          <children>
@@ -20,7 +19,7 @@
                   <TableColumn prefWidth="150.0" text="Prix unitaire" />
               </columns>
             </TableView>
-            <Button layoutX="722.0" layoutY="526.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="271.0" styleClass="btnAV" stylesheets="@login.css" text="Retourner au Dashboard" />
+            <Button fx:id="dash" layoutX="722.0" layoutY="526.0" mnemonicParsing="false" onAction="#dashboard" prefHeight="25.0" prefWidth="271.0" styleClass="btnAV" stylesheets="@login.css" text="Retourner au Dashboard" />
             <Button layoutX="638.0" layoutY="310.0" mnemonicParsing="false" styleClass="btnAV" stylesheets="@login.css" text="Vendre" />
             <TextField layoutX="590.0" layoutY="83.0" promptText="Crypto" styleClass="ios-field" stylesheets="@login.css" />
             <TextField layoutX="590.0" layoutY="173.0" promptText="Quantité" styleClass="ios-field" stylesheets="@login.css" />

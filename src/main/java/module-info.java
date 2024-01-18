@@ -13,4 +13,6 @@ module com.example.moneymate {
 
     opens com.example.moneymate2 to javafx.fxml;
     exports com.example.moneymate2;
+    exports TestsUnitaires;
+    opens TestsUnitaires to javafx.fxml;
 }

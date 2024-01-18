@@ -37,8 +37,10 @@ public class SettingsController implements Initializable {
         myChoicebox.setOnAction(this::getmonnaie);
 
     }
+
     public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
     }
+
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
         this.gestionUtilisateur = new GestionUtilisateur();
@@ -66,7 +68,22 @@ public class SettingsController implements Initializable {
             DashboardController setController = loader.getController();
             setController.setUtilisateurConnecte(this.utilisateurConnecte);
             setController.setGestionUtilisateur(this.gestionUtilisateur);
+            setController.updateData2();
 
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    void Deco(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Login.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = deco.getScene();
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
         } catch (Exception e) {

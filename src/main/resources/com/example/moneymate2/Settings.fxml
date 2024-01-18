@@ -54,7 +54,7 @@
                   <Font name="Ebrima Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="deco" layoutX="100.0" layoutY="508.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="316.0" styleClass="btnlog" stylesheets="@login.css" text="Déconnexion">
+            <Button fx:id="deco" layoutX="100.0" layoutY="508.0" mnemonicParsing="false" onAction="#Deco" prefHeight="51.0" prefWidth="316.0" styleClass="btnlog" stylesheets="@login.css" text="Déconnexion">
                <font>
                   <Font name="Ebrima Bold" size="14.0" />
                </font>

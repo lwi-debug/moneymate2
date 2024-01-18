@@ -7,6 +7,7 @@ import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -56,31 +57,35 @@ public class DashboardController {
 
     @FXML
     private Label id2;
-    private static String currency = "usd";
+    private static String currency = "usd";//par default
 
 
     @FXML
     private ListView<String> Actu;
 
+    @FXML
+    private JFXButton achat;
+    @FXML
+    private JFXButton vendre;
+
+
+
     public DashboardController() {
         gestionUtilisateur = new GestionUtilisateur();
     }
-
     public static void setCurrency(String newCurrency) {
         currency = newCurrency;}
 
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
-        this.gestionUtilisateur = new GestionUtilisateur(); //recupere l'utilisateur
+        this.gestionUtilisateur = new GestionUtilisateur(); // Initialisation de gestionUtilisateur
     }
-    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
-    }
-
     public void affichercreaportefeuil() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/CreationP.fxml"));
             Parent settingsRoot = loader.load();
 
+            // Assurez-vous que cette ligne est correcte
             CreationPortefeuilleController creationController = loader.getController();
             creationController.setUtilisateurConnecte(this.utilisateurConnecte);
             creationController.setGestionUtilisateur(this.gestionUtilisateur);
@@ -94,15 +99,10 @@ public class DashboardController {
     }
     @FXML
     public void initialize() {
-        Date();
         readRss("https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/international/section/business/economy/rss.xml");
+        Date();
     }
-    public void Date(){
-        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
-        String datenow =sdf.format(new Date());
-        time.setText(datenow);
 
-    }
     @FXML void readRss(String rssUrl) {
         new Thread(() -> {
             try {
@@ -113,7 +113,7 @@ public class DashboardController {
                 List<SyndEntry> entries = feed.getEntries();
                 Platform.runLater(() -> {
                     for (SyndEntry entry : entries) {
-                        String link = entry.getLink(); // Récupérer le lien que l'on a recuperé grace a des extensions
+                        String link = entry.getLink(); // Récupérer le lien
                         String newsItem = entry.getTitle() + "\n" + entry.getPublishedDate() + "\n" + entry.getDescription().getValue() + "\nLink: " + link;
                         Actu.getItems().add(newsItem);
                     }
@@ -123,11 +123,6 @@ public class DashboardController {
             }
         }).start();
     }
-
-
-
-
-    //transition + update
     @FXML
     void afficherportfoliodetails(MouseEvent event) {
         try {
@@ -164,8 +159,6 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
-
-    //transition + update
     @FXML
     void afficherportfolio2details(MouseEvent event) {
         try {
@@ -185,7 +178,43 @@ public class DashboardController {
         }
     }
 
-    //transition
+    @FXML
+    void Acheter(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Acheter.fxml"));
+            Parent achatRoot = loader.load();
+            Scene scene = achat.getScene();
+            AchatController achatController = loader.getController();
+            achatController.setUtilisateurConnecte(this.utilisateurConnecte);
+            achatController.setGestionUtilisateur(this.gestionUtilisateur);
+
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(achatRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void Vendre(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Vendre.fxml"));
+            Parent achatRoot = loader.load();
+            Scene scene = vendre.getScene();
+
+            VendreController ventController = loader.getController();
+            ventController.setUtilisateurConnecte(this.utilisateurConnecte);
+            ventController.setGestionUtilisateur(this.gestionUtilisateur);
+
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(achatRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @FXML
     void affichersetting(MouseEvent event) {
         try {
@@ -204,8 +233,6 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
-
-    //transition + update
     @FXML
     void afficherevolution(MouseEvent event) {
         try {
@@ -224,8 +251,6 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
-
-    //transition + update
     @FXML
     void afficherevolution1(MouseEvent event) {
         try {
@@ -244,8 +269,6 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
-
-    //transition + update
     @FXML
     void afficherevolution2(MouseEvent event) {
         try {
@@ -264,10 +287,16 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+    public void Date(){
+        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
+        String datenow =sdf.format(new Date());
+        time.setText(datenow);
 
+    }
 
+    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
+    }
 
-//update les labels
     public void updateData2(){
         String symboleMonnaie = "eur".equals(currency) ? "€" : "$";
 
@@ -298,6 +327,3 @@ public class DashboardController {
         }
     }
 }
-
-
-

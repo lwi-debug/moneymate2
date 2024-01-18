@@ -152,8 +152,8 @@
                <cursor>
                   <Cursor fx:constant="CROSSHAIR" />
                </cursor></ListView>
-            <JFXButton buttonType="RAISED" layoutX="717.0" layoutY="403.0" prefHeight="37.0" prefWidth="166.0" styleClass="btnAV" text="Acheter" />
-            <JFXButton buttonType="RAISED" layoutX="718.0" layoutY="450.0" prefHeight="37.0" prefWidth="166.0" styleClass="btnAV" text="Vendre" />
+            <JFXButton fx:id="achat" buttonType="RAISED" layoutX="717.0" layoutY="403.0" onAction="#Acheter" prefHeight="37.0" prefWidth="166.0" styleClass="btnAV" text="Acheter" />
+            <JFXButton fx:id="vendre" buttonType="RAISED" layoutX="718.0" layoutY="450.0" onAction="#Vendre" prefHeight="37.0" prefWidth="166.0" styleClass="btnAV" text="Vendre" />
          </children>
          <stylesheets>
             <URL value="@login.css" />

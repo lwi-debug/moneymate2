@@ -1,11 +1,12 @@
-/*package com.example.moneymate2;
+package com.example.moneymate2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,9 @@ public class AchatController {
 
     @FXML
     private Label errorLabel;
+    @FXML
+    public Button dash;
+
 
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
@@ -79,7 +83,7 @@ public class AchatController {
         List<Crypto1> topCryptos = new ArrayList<>();
 
 
-        // Exemple pour Bitcoin (BTC)
+
         double bitcoinPrice = apiCaller.getCryptoValue("bitcoin");
         Crypto1 bitcoin = new Crypto1("Bitcoin", bitcoinPrice, 0);
         topCryptos.add(bitcoin);
@@ -89,7 +93,19 @@ public class AchatController {
         Crypto1 ethereum = new Crypto1("Ethereum", ethereumPrice, 0);
         topCryptos.add(ethereum);
 
-        // Ajoutez les trois autres cryptomonnaies de manière similaire
+        double solanaPrice = apiCaller.getCryptoValue("solana");
+        Crypto1 solana = new Crypto1("Solana", solanaPrice, 0);
+        topCryptos.add(solana);
+
+        double cardanoPrice = apiCaller.getCryptoValue("cardano");
+        Crypto1 cardano = new Crypto1("Cardano", cardanoPrice, 0);
+        topCryptos.add(cardano);
+
+        double xrpPrice = apiCaller.getCryptoValue("xrp");
+        Crypto1 xrp = new Crypto1("XRP", xrpPrice, 0);
+        topCryptos.add(xrp);
+
+
 
         return topCryptos;
     }
@@ -115,7 +131,25 @@ public class AchatController {
             errorLabel.setText("Veuillez sélectionner une crypto.");
         }
     }
+    @FXML
+    void dashboard(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/Dashboard.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = dash.getScene();
+
+            DashboardController setController = loader.getController();
+            setController.setUtilisateurConnecte(this.utilisateurConnecte);
+            setController.setGestionUtilisateur(this.gestionUtilisateur);
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
-*/
+
 
 
