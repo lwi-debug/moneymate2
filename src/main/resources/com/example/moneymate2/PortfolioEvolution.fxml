@@ -4,9 +4,6 @@
 <?import com.jfoenix.controls.JFXDrawersStack?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
@@ -58,12 +55,12 @@
          <children>
             <Pane layoutX="50.0" prefHeight="564.0" prefWidth="842.0" styleClass="pane">
                <children>
-                  <Label layoutX="23.0" layoutY="10.0" prefHeight="39.0" prefWidth="121.0" styleClass="col8" stylesheets="@dashboardstyle.css" text="Portefeuille X" textFill="#8fbfff">
+                  <Label layoutX="23.0" layoutY="10.0" prefHeight="39.0" prefWidth="221.0" styleClass="col8" stylesheets="@dashboardstyle.css" text="Evolution de votre Portefeuille " textFill="#8fbfff">
                      <font>
                         <Font name="Calibri Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="121.0" layoutY="20.0" prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: C1C1C1;" text="| ">
+                  <Label layoutX="238.0" layoutY="20.0" prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: C1C1C1;" text="| ">
                      <font>
                         <Font name="Eras Medium ITC" size="14.0" />
                      </font>
@@ -73,7 +70,7 @@
                         <Font name="Calibri" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="136.0" layoutY="19.0" prefHeight="20.0" prefWidth="285.0" text="0001 0002 2345 1234">
+                  <Label fx:id="identifiant" layoutX="257.0" layoutY="20.0" prefHeight="20.0" prefWidth="285.0" text="0001 0002 2345 1234">
                      <font>
                         <Font name="Ebrima Bold" size="14.0" />
                      </font>
@@ -83,12 +80,12 @@
                         <Font name="Calibri Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="23.0" layoutY="115.0" prefHeight="20.0" prefWidth="285.0" text="\$ 11000.23 ">
+                  <Label fx:id="ValeurTotale" layoutX="23.0" layoutY="115.0" prefHeight="20.0" prefWidth="285.0" text="\$ 11000.23 ">
                      <font>
                         <Font name="Ebrima Bold" size="40.0" />
                      </font>
                   </Label>
-                  <Separator layoutX="530.0" layoutY="197.0" orientation="VERTICAL" prefHeight="351.0" prefWidth="15.0" />
+                  <Separator layoutX="488.0" layoutY="196.0" orientation="VERTICAL" prefHeight="351.0" prefWidth="15.0" />
                   <Label layoutX="557.0" layoutY="149.0" prefHeight="20.0" prefWidth="285.0" text="Cours des crypto-monnaies ">
                      <font>
                         <Font name="Ebrima Bold" size="14.0" />
@@ -105,21 +102,13 @@
                      </font>
                   </Label>
                   <JFXDrawersStack layoutX="17.0" layoutY="238.0" prefHeight="312.0" prefWidth="502.0" />
-                  <Pane layoutX="23.0" layoutY="194.0" prefHeight="355.0" prefWidth="501.0" styleClass="panedetails1">
+                  <Pane layoutX="23.0" layoutY="194.0" prefHeight="355.0" prefWidth="428.0" styleClass="panedetails1">
                      <children>
                         <Label layoutX="25.0" layoutY="21.0" prefHeight="20.0" prefWidth="298.0" styleClass="col1" text="Evolution de votre portefeuille depuis sa création">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
-                        <BarChart alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="-3.0" layoutY="41.0" prefHeight="301.0" prefWidth="487.0" styleClass="oo">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </BarChart>
                      </children>
                   </Pane>
                   <TableView layoutX="542.0" layoutY="196.0" prefHeight="353.0" prefWidth="288.0">

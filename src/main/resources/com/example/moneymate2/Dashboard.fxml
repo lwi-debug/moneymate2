@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -91,6 +92,7 @@
                            <font>
                               <Font name="Calibri Light" size="12.0" />
                            </font></Label>
+                        <JFXButton fx:id="evolution1" buttonType="RAISED" layoutX="191.0" layoutY="107.0" onMouseClicked="#afficherevolution1" prefHeight="25.0" prefWidth="111.0" styleClass="btnE1" text="évolution" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="471.0" layoutY="97.0" prefHeight="143.0" prefWidth="210.0" styleClass="cardcolor2">
@@ -112,6 +114,7 @@
                            <font>
                               <Font name="Calibri Light" size="12.0" />
                            </font></Label>
+                        <JFXButton fx:id="evolution2" buttonType="RAISED" layoutX="206.0" layoutY="107.0" onMouseClicked="#afficherevolution2" prefHeight="25.0" prefWidth="111.0" styleClass="btnE2" text="évolution" />
                      </children>
                      <stylesheets>
                         <URL value="@dashboardstyle.css" />
@@ -140,9 +143,12 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Label>
-            <ListView fx:id="Actu" layoutX="50.0" layoutY="334.0" prefHeight="208.0" prefWidth="610.0" style="-fx-background-color: f3f3f3;" styleClass="listview" stylesheets="@dashboardstyle.css" />
-            <JFXButton buttonType="RAISED" layoutX="717.0" layoutY="390.0" prefHeight="37.0" prefWidth="166.0" styleClass="btnAV" text="Acheter" />
-            <JFXButton buttonType="RAISED" layoutX="718.0" layoutY="437.0" prefHeight="37.0" prefWidth="166.0" styleClass="btnAV" text="Vendre" />
+            <ListView fx:id="Actu" layoutX="50.0" layoutY="346.0" prefHeight="208.0" prefWidth="610.0" style="-fx-background-color: f3f3f3;" styleClass="listview" stylesheets="@dashboardstyle.css">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor></ListView>
+            <JFXButton buttonType="RAISED" layoutX="717.0" layoutY="403.0" prefHeight="37.0" prefWidth="166.0" styleClass="btnAV" text="Acheter" />
+            <JFXButton buttonType="RAISED" layoutX="718.0" layoutY="450.0" prefHeight="37.0" prefWidth="166.0" styleClass="btnAV" text="Vendre" />
          </children>
          <stylesheets>
             <URL value="@login.css" />

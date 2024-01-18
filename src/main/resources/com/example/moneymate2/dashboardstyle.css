@@ -62,7 +62,7 @@
 }
 
 .cardcolor {
--fx-background-color: linear-gradient(to right,#092635,#447062);
+-fx-background-color: linear-gradient(to right,#092635,#9EC8B9);
 -fx-background-radius: 10px;
 }
 
@@ -338,3 +338,46 @@
 .col10{
 -fx-text-fill: #3C0753;
 }
+.btnE1 {
+    -fx-background-color: #325c5b;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 5px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.btnE1:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius:5px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 2px;
+    -fx-border-color: #ffffff;
+    -fx-border-style: solid;
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;}
+
+.btnE2 {
+    -fx-background-color: #d94343;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 5px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.btnE2:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius:5px; /* Pas d'espace avant "px" */
+    -fx-border-radius: 5px; /* Pas d'espace avant "px" */
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 2px;
+    -fx-border-color: #ffffff;
+    -fx-border-style: solid;
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;}

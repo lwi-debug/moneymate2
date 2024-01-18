@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class PortfolioEvolutionController {
     @FXML
@@ -19,6 +20,7 @@ public class PortfolioEvolutionController {
     private JFXButton PorDet;
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
+    private static String currency = "usd";//par default
 
     @FXML
     public JFXButton Dash;
@@ -26,6 +28,11 @@ public class PortfolioEvolutionController {
     private Label liquidites;
     @FXML
     private Label time;
+    @FXML
+    private Label ValeurTotale;
+
+    @FXML
+    private Label identifiant;
 
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
@@ -34,6 +41,10 @@ public class PortfolioEvolutionController {
     public void setGestionUtilisateur(GestionUtilisateur gestion) {
         this.gestionUtilisateur = gestion;
     }
+
+
+    public static void setCurrency(String newCurrency) {
+        currency = newCurrency;}
 
 
     @FXML
@@ -101,6 +112,54 @@ public class PortfolioEvolutionController {
     public void initialize() {
         Date();
     }
+    public void updateData4(){
+        String symboleMonnaie = "eur".equals(currency) ? "€" : "$";
 
+        double valeurTotale;
+        String identifiant;
 
+        if (this.utilisateurConnecte.getPortefeuilles().isEmpty() || this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant() == null || this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant().isEmpty()) {
+            valeurTotale = 0;
+            identifiant = "N/A";
+        } else {
+            valeurTotale = this.utilisateurConnecte.getPortefeuilles().isEmpty() ? 0 : this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleFromCSV(this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant());
+
+            identifiant = this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant();
+        }
+
+        this.ValeurTotale.setText(symboleMonnaie + " " + (valeurTotale == 0 ? "0.00" : String.format("%.2f", valeurTotale)));
+        this.identifiant.setText(identifiant);
+    }
+    public void updateData5(){
+        String symboleMonnaie = "eur".equals(currency) ? "€" : "$";
+
+        double valeurTotale;
+        String identifiant;
+
+        if (this.utilisateurConnecte.getPortefeuilles().isEmpty() || this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant() == null || this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant().isEmpty()) {
+            valeurTotale = 0;
+            identifiant = "N/A";
+        } else {
+            valeurTotale = this.utilisateurConnecte.getPortefeuilles().isEmpty() ? 0 : this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleFromCSV(this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant());
+
+            identifiant = this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant();
+        }
+
+        this.ValeurTotale.setText(symboleMonnaie + " " + (valeurTotale == 0 ? "0.00" : String.format("%.2f", valeurTotale)));
+        this.identifiant.setText(identifiant);
+
+        if (this.utilisateurConnecte.getPortefeuilles().size() > 1) {
+            double valeurTotale2 = this.utilisateurConnecte.getPortefeuilles().get(1).getValeurTotaleFromCSV(this.utilisateurConnecte.getPortefeuilles().get(1).getIdentifiant());
+            String identifiant2 = this.utilisateurConnecte.getPortefeuilles().get(1).getIdentifiant();
+            this.ValeurTotale.setText(symboleMonnaie + " " + String.format("%.2f", valeurTotale2));
+            this.identifiant.setText(identifiant2);
+        } else {
+            // Gérez le cas où il n'y a pas de second portefeuille
+            this.ValeurTotale.setText(symboleMonnaie + " 0.00");
+            this.identifiant.setText("N/A");
+        }
+    }
 }
+
+
+

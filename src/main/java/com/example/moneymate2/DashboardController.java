@@ -35,6 +35,10 @@ public class DashboardController {
     @FXML
     private JFXButton evolution;
     @FXML
+    private JFXButton evolution1;
+    @FXML
+    private JFXButton evolution2;
+    @FXML
     private JFXButton Portefeuille1;
     @FXML
     private JFXButton Portefeuille2;
@@ -193,6 +197,43 @@ public class DashboardController {
             PortfolioEvolutionController evolController = loader.getController();
             evolController.setUtilisateurConnecte(this.utilisateurConnecte);
             evolController.setGestionUtilisateur(this.gestionUtilisateur);
+            evolController.updateData4();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void afficherevolution1(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioEvolution.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = evolution.getScene();
+
+            PortfolioEvolutionController evolController = loader.getController();
+            evolController.setUtilisateurConnecte(this.utilisateurConnecte);
+            evolController.setGestionUtilisateur(this.gestionUtilisateur);
+            evolController.updateData4();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void afficherevolution2(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioEvolution.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = evolution.getScene();
+
+            PortfolioEvolutionController evolController = loader.getController();
+            evolController.setUtilisateurConnecte(this.utilisateurConnecte);
+            evolController.setGestionUtilisateur(this.gestionUtilisateur);
+            evolController.updateData5();
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
