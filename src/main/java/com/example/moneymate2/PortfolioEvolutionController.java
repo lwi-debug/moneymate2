@@ -9,6 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class PortfolioEvolutionController {
     @FXML
     private JFXButton setting;
@@ -21,6 +24,8 @@ public class PortfolioEvolutionController {
     public JFXButton Dash;
     @FXML
     private Label liquidites;
+    @FXML
+    private Label time;
 
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
@@ -59,6 +64,7 @@ public class PortfolioEvolutionController {
             DashboardController dashController = loader.getController();
             dashController.setUtilisateurConnecte(this.utilisateurConnecte);
             dashController.setGestionUtilisateur(this.gestionUtilisateur);
+            dashController.updateData2();
 
 
             Stage stage = (Stage) scene.getWindow();
@@ -84,6 +90,16 @@ public class PortfolioEvolutionController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void Date(){
+        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
+        String datenow =sdf.format(new Date());
+        time.setText(datenow);
+
+    }
+    @FXML
+    public void initialize() {
+        Date();
     }
 
 

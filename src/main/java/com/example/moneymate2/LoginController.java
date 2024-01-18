@@ -52,7 +52,7 @@ public class LoginController {
                 DashboardController dashboardController = loader.getController();
 
                 dashboardController.setUtilisateurConnecte(utilisateur);
-
+                dashboardController.updateData2();
 
                 // Mettre en place la nouvelle scène
                 Scene scene = loginButton.getScene();

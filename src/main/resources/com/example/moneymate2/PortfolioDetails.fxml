@@ -50,22 +50,22 @@
             <children>
                 <Pane layoutX="50.0" prefHeight="183.0" prefWidth="842.0" styleClass="pane">
                     <children>
-                        <Label layoutX="23.0" layoutY="10.0" prefHeight="39.0" prefWidth="121.0" styleClass="col7" stylesheets="@dashboardstyle.css" text="Portefeuille X" textFill="#8fbfff">
+                        <Label layoutX="23.0" layoutY="10.0" prefHeight="39.0" prefWidth="213.0" styleClass="col7" stylesheets="@dashboardstyle.css" text="Contenu de votrePortefeuille" textFill="#8fbfff">
                             <font>
                                 <Font name="Calibri Bold" size="16.0" />
                             </font>
                         </Label>
-                        <Label layoutX="121.0" layoutY="20.0" prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: C1C1C1;" text="| ">
+                        <Label layoutX="223.0" layoutY="20.0" prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: C1C1C1;" text="| ">
                             <font>
                                 <Font name="Eras Medium ITC" size="14.0" />
                             </font>
                         </Label>
-                        <Label layoutX="708.0" layoutY="19.0" prefHeight="20.0" prefWidth="140.0" text="10 Janvier 2024" textAlignment="CENTER">
+                        <Label fx:id="time" layoutX="708.0" layoutY="19.0" prefHeight="20.0" prefWidth="140.0" text="10 Janvier 2024" textAlignment="CENTER">
                             <font>
                                 <Font name="Calibri" size="14.0" />
                             </font>
                         </Label>
-                  <Label layoutX="136.0" layoutY="19.0" prefHeight="20.0" prefWidth="285.0" text="0001 0002 2345 1234">
+                  <Label fx:id="Identifiant" layoutX="242.0" layoutY="19.0" prefHeight="20.0" prefWidth="285.0" text="0001 0002 2345 1234">
                      <font>
                         <Font name="Ebrima Bold" size="14.0" />
                      </font>
@@ -75,7 +75,7 @@
                         <Font name="Calibri Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="ValeurTotale" layoutX="23.0" layoutY="115.0" prefHeight="20.0" prefWidth="285.0" text="\$ 11000.23 ">
+                  <Label fx:id="ValeurTotale" layoutX="23.0" layoutY="115.0" prefHeight="20.0" prefWidth="285.0" text="\$ 0 ">
                      <font>
                         <Font name="Ebrima Bold" size="40.0" />
                      </font>
@@ -88,17 +88,17 @@
                 </Pane>
             <Pane layoutX="47.0" layoutY="198.0" prefHeight="362.0" prefWidth="845.0" styleClass="panedetails" stylesheets="@dashboardstyle.css">
                <children>
-                  <Label fx:id="pourcentageliquidite" layoutX="88.0" layoutY="279.0" prefHeight="53.0" prefWidth="126.0" text="0">
+                  <Label fx:id="pourcentageliquidite" layoutX="88.0" layoutY="279.0" prefHeight="53.0" prefWidth="126.0" text="0 %">
                      <font>
                         <Font name="Calibri Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="pourcentageCrypto" layoutX="371.0" layoutY="279.0" prefHeight="53.0" prefWidth="115.0" text="0">
+                  <Label fx:id="pourcentageCrypto" layoutX="371.0" layoutY="279.0" prefHeight="53.0" prefWidth="115.0" text="0 %">
                      <font>
                         <Font name="Calibri Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="pourcentageAction" layoutX="662.0" layoutY="279.0" prefHeight="53.0" prefWidth="95.0" text="0">
+                  <Label fx:id="pourcentageAction" layoutX="662.0" layoutY="279.0" prefHeight="53.0" prefWidth="95.0" text="0 %">
                      <font>
                         <Font name="Calibri Bold" size="22.0" />
                      </font>
@@ -112,12 +112,12 @@
                         <FontAwesomeIconView glyphName="DOLLAR" layoutX="16.0" layoutY="24.0" size="16" styleClass="iconeblanc" text="" />
                      </children>
                   </Pane>
-                  <Label layoutX="21.0" layoutY="71.0" prefHeight="20.0" prefWidth="137.0" styleClass="col1" text="Compte courant">
+                  <Label layoutX="21.0" layoutY="77.0" prefHeight="20.0" prefWidth="137.0" styleClass="col1" text="Compte courant">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="Ebrima Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="liquidites" layoutX="17.0" layoutY="180.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="\$ 5300.78">
+                  <Label fx:id="liquidites" layoutX="17.0" layoutY="180.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="\$ 0">
                      <font>
                         <Font name="Ebrima Bold" size="16.0" />
                      </font>
@@ -131,9 +131,9 @@
                         <FontAwesomeIconView glyphName="BITCOIN" layoutX="15.0" layoutY="25.0" size="16" styleClass="iconeblanc" />
                      </children>
                   </Pane>
-                  <Label layoutX="21.0" layoutY="71.0" prefHeight="20.0" prefWidth="137.0" styleClass="col1" text="Crypto-Monnaies">
+                  <Label layoutX="21.0" layoutY="77.0" prefHeight="20.0" prefWidth="137.0" styleClass="col1" text="Crypto-Monnaies">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="Ebrima Bold" size="14.0" />
                      </font>
                   </Label>
                   <Label fx:id="Crypto" layoutX="21.0" layoutY="178.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="\$ 0">
@@ -141,14 +141,14 @@
                         <Font name="Ebrima Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="nomCrypto" layoutX="21.0" layoutY="143.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="BTC ">
+                  <Label fx:id="nomCrypto" layoutX="21.0" layoutY="143.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="nom">
                      <font>
-                        <Font name="Ebrima" size="12.0" />
+                        <Font name="Ebrima" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="quantitéCrypto" layoutX="90.0" layoutY="143.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="1.3456">
+                  <Label fx:id="quantitéCrypto" layoutX="90.0" layoutY="141.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="quantité">
                      <font>
-                        <Font name="Ebrima" size="12.0" />
+                        <Font name="Ebrima" size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -160,9 +160,9 @@
                         <FontAwesomeIconView glyphName="BRIEFCASE" layoutX="13.0" layoutY="25.0" size="16" styleClass="iconeblanc" />
                      </children>
                   </Pane>
-                  <Label layoutX="21.0" layoutY="71.0" prefHeight="20.0" prefWidth="137.0" styleClass="col1" text="Action Boursières">
+                  <Label layoutX="21.0" layoutY="77.0" prefHeight="20.0" prefWidth="137.0" styleClass="col1" text="Action Boursières">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="Ebrima Bold" size="14.0" />
                      </font>
                   </Label>
                   <Label fx:id="Action" layoutX="21.0" layoutY="178.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="\$ 0">
@@ -170,14 +170,14 @@
                         <Font name="Ebrima Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="nomAction" layoutX="21.0" layoutY="142.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="BTC ">
+                  <Label fx:id="nomAction" layoutX="21.0" layoutY="142.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="nom">
                      <font>
-                        <Font name="Ebrima" size="12.0" />
+                        <Font name="Ebrima" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="quantitéAction" layoutX="90.0" layoutY="142.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="1.3456">
+                  <Label fx:id="quantitéAction" layoutX="90.0" layoutY="140.0" prefHeight="48.0" prefWidth="203.0" styleClass="col1" text="quantité">
                      <font>
-                        <Font name="Ebrima" size="12.0" />
+                        <Font name="Ebrima" size="14.0" />
                      </font>
                   </Label>
                </children>

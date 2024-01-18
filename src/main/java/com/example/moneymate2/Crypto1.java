@@ -4,6 +4,7 @@ public class Crypto1{
     private String symbole;
     private double prixUnitaire;
     private double quantite;
+    private boolean empty;
 
     public Crypto1(String symbole, double prixUnitaire, double quantite) {
         this.symbole = symbole;
@@ -34,6 +35,10 @@ public class Crypto1{
 
     public void setQuantite(double quantite) {
         this.quantite = quantite;
+    }
+
+    public boolean isEmpty() {
+        return empty;
     }
 }
 

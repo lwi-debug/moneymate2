@@ -35,7 +35,24 @@ public class DashboardController {
     @FXML
     private JFXButton evolution;
     @FXML
+    private JFXButton Portefeuille1;
+    @FXML
+    private JFXButton Portefeuille2;
+    @FXML
     private Label time;
+
+    @FXML
+    private Label ValeurTotale;
+
+    @FXML
+    private Label id;
+
+    @FXML
+    private Label ValeurTotale2;
+
+    @FXML
+    private Label id2;
+    private static String currency = "usd";//par default
 
 
     @FXML
@@ -44,6 +61,8 @@ public class DashboardController {
     public DashboardController() {
         gestionUtilisateur = new GestionUtilisateur();
     }
+    public static void setCurrency(String newCurrency) {
+        currency = newCurrency;}
 
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
@@ -68,7 +87,7 @@ public class DashboardController {
     }
     @FXML
     public void initialize() {
-        readRss("https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/business/small-business/rss.xml");
+        readRss("https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/international/section/business/economy/rss.xml");
         Date();
     }
 
@@ -83,7 +102,7 @@ public class DashboardController {
                 Platform.runLater(() -> {
                     for (SyndEntry entry : entries) {
                         String link = entry.getLink(); // Récupérer le lien
-                        String newsItem = "Title: " + entry.getTitle() + "\nDate: " + entry.getPublishedDate() + "\nDescription: " + entry.getDescription().getValue() + "\nLink: " + link;
+                        String newsItem = entry.getTitle() + "\n" + entry.getPublishedDate() + "\n" + entry.getDescription().getValue() + "\nLink: " + link;
                         Actu.getItems().add(newsItem);
                     }
                 });
@@ -103,6 +122,42 @@ public class DashboardController {
             detailController.setUtilisateurConnecte(this.utilisateurConnecte);
             detailController.setGestionUtilisateur(this.gestionUtilisateur);
             detailController.updateData();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void afficherportfolio1details(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioDetails.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = PorDet.getScene();
+
+            PortfolioDetailsController detailController = loader.getController();
+            detailController.setUtilisateurConnecte(this.utilisateurConnecte);
+            detailController.setGestionUtilisateur(this.gestionUtilisateur);
+            detailController.updateData();
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(settingsRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void afficherportfolio2details(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/PortfolioDetails.fxml"));
+            Parent settingsRoot = loader.load();
+            Scene scene = PorDet.getScene();
+
+            PortfolioDetailsController detailController = loader.getController();
+            detailController.setUtilisateurConnecte(this.utilisateurConnecte);
+            detailController.setGestionUtilisateur(this.gestionUtilisateur);
+            detailController.updateData3();
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
@@ -154,8 +209,37 @@ public class DashboardController {
 
     public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
     }
-}
 
+    public void updateData2(){
+        String symboleMonnaie = "eur".equals(currency) ? "€" : "$";
+
+        double valeurTotale;
+        String identifiant;
+
+        if (this.utilisateurConnecte.getPortefeuilles().isEmpty() || this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant() == null || this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant().isEmpty()) {
+            valeurTotale = 0;
+            identifiant = "N/A";
+        } else {
+            valeurTotale = this.utilisateurConnecte.getPortefeuilles().isEmpty() ? 0 : this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleFromCSV(this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant());
+
+            identifiant = this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant();
+        }
+
+        this.ValeurTotale.setText(symboleMonnaie + " " + (valeurTotale == 0 ? "0.00" : String.format("%.2f", valeurTotale)));
+        this.id.setText(identifiant);
+
+        if (this.utilisateurConnecte.getPortefeuilles().size() > 1) {
+            double valeurTotale2 = this.utilisateurConnecte.getPortefeuilles().get(1).getValeurTotaleFromCSV(this.utilisateurConnecte.getPortefeuilles().get(1).getIdentifiant());
+            String identifiant2 = this.utilisateurConnecte.getPortefeuilles().get(1).getIdentifiant();
+            this.ValeurTotale2.setText(symboleMonnaie + " " + String.format("%.2f", valeurTotale2));
+            this.id2.setText(identifiant2);
+        } else {
+            // Gérez le cas où il n'y a pas de second portefeuille
+            this.ValeurTotale2.setText(symboleMonnaie + " 0.00");
+            this.id2.setText("N/A");
+        }
+    }
+}
 
 
 

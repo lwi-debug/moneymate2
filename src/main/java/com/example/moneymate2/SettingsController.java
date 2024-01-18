@@ -28,6 +28,8 @@ public class SettingsController implements Initializable {
     @FXML
     public Button dash;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         myChoicebox.getItems().addAll(monnaie);
@@ -49,6 +51,7 @@ public class SettingsController implements Initializable {
             PortfolioDetailsController.setCurrency(selectedCurrency);
 
         }
+
     }
     @FXML
     void dashboard(ActionEvent event) {
@@ -67,6 +70,10 @@ public class SettingsController implements Initializable {
             e.printStackTrace();
         }
     }
+    public String getMonnaieActuelle() {
+        return myChoicebox.getValue();
+    }
+
 
 
     public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {

@@ -73,23 +73,23 @@
 
 .textgras{
     -fx-text-fill: #1B4242; /* Utilisez -fx-text-fill pour les éléments de texte */
-    -fx-font-family: 'Calibri'; /* Assurez-vous que 'Ebrima' est disponible */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que 'Ebrima' est disponible */
     -fx-font-weight: bold;
     -fx-font-size: 14px; /* Ajoutez la taille de la police si nécessaire */
 }
 
 .textcorp{
 -fx-text-fill: #ffffff; /* Utilisez -fx-text-fill pour les éléments de texte */
-    -fx-font-family: 'Calibri'; /* Assurez-vous que 'Ebrima' est disponible */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que 'Ebrima' est disponible */
     -fx-font-weight: bold;
-    -fx-font-size: 14px;
+    -fx-font-size: 12px;
 }
 
 .textcorp2{
 -fx-text-fill: #4c4c4c; /* Utilisez -fx-text-fill pour les éléments de texte */
-    -fx-font-family: 'Calibri'; /* Assurez-vous que 'Ebrima' est disponible */
+    -fx-font-family: 'Ebrima'; /* Assurez-vous que 'Ebrima' est disponible */
     -fx-font-weight: bold;
-    -fx-font-size: 14px;
+    -fx-font-size: 12px;
 }
 .separator-style {
     -fx-border-width: 0 0 4 0; /* Épaisseur de 2 pixels sur le côté inférieur uniquement */

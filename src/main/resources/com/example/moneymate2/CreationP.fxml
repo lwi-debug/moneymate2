@@ -56,7 +56,7 @@
                         <Font name="Calibri Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="708.0" layoutY="19.0" prefHeight="20.0" prefWidth="140.0" text="10 Janvier 2024" textAlignment="CENTER">
+                  <Label fx:id="time" layoutX="708.0" layoutY="19.0" prefHeight="20.0" prefWidth="140.0" text="10 Janvier 2024" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="14.0" />
                      </font>
@@ -80,13 +80,16 @@
                      <children>
                         <Label layoutX="74.0" layoutY="26.0" styleClass="cortt" text="Compte Courant">
                            <font>
-                              <Font name="Candara Light" size="14.0" />
+                              <Font name="Ebrima" size="12.0" />
                            </font></Label>
                         <TextField fx:id="montantLiquiditeTextField" layoutX="41.0" layoutY="137.0" prefHeight="27.0" prefWidth="172.0" promptText="Solde de votre Compte" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
                            </stylesheets>
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
                         </TextField>
                         <JFXButton buttonType="RAISED" layoutX="74.0" layoutY="285.0" prefHeight="25.0" prefWidth="90.0" styleClass="btnc2" text="+" />
                         <Pane layoutX="18.0" layoutY="18.0" prefHeight="39.0" prefWidth="41.0" styleClass="btnc2">
@@ -100,19 +103,25 @@
                      <children>
                         <Label layoutX="74.0" layoutY="26.0" styleClass="cortt" text="Crypto-Monnaies">
                            <font>
-                              <Font name="Candara Light" size="14.0" />
+                              <Font name="Ebrima" size="12.0" />
                            </font></Label>
                         <TextField fx:id="nomCryptoTextField" layoutX="42.0" layoutY="108.0" prefHeight="27.0" prefWidth="172.0" promptText="Symbole Crypto" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
                            </stylesheets>
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
                         </TextField>
                         <TextField fx:id="quantiteCryptoTextField" layoutX="42.0" layoutY="178.0" prefHeight="27.0" prefWidth="172.0" promptText="Quantité" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
                            </stylesheets>
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
                         </TextField>
                         <JFXButton layoutX="79.0" layoutY="298.0" prefHeight="25.0" prefWidth="90.0" text="+" />
                         <JFXButton buttonType="RAISED" layoutX="82.0" layoutY="285.0" prefHeight="25.0" prefWidth="90.0" styleClass="btnc3" text="+" />
@@ -127,19 +136,25 @@
                      <children>
                         <Label layoutX="78.0" layoutY="33.0" styleClass="cortt" text="Actions Boursières">
                            <font>
-                              <Font name="Candara Light" size="14.0" />
+                              <Font name="Ebrima" size="12.0" />
                            </font></Label>
                         <TextField fx:id="nomActionTextField" layoutX="45.0" layoutY="108.0" prefHeight="27.0" prefWidth="172.0" promptText="Symbole Action" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
                            </stylesheets>
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
                         </TextField>
                         <TextField fx:id="quantiteActionTextField" layoutX="45.0" layoutY="177.0" prefHeight="27.0" prefWidth="172.0" promptText="Quantité" styleClass="ios-field2">
                            <stylesheets>
                               <URL value="@dashboardstyle.css" />
                               <URL value="@login.css" />
                            </stylesheets>
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
                         </TextField>
                         <JFXButton layoutX="88.0" layoutY="294.0" prefHeight="25.0" prefWidth="90.0" text="+" />
                         <JFXButton buttonType="RAISED" layoutX="88.0" layoutY="285.0" prefHeight="25.0" prefWidth="90.0" styleClass="btnc4" text="+" />
@@ -150,7 +165,17 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <JFXButton fx:id="creerPortefeuilleButton" buttonType="RAISED" layoutX="177.0" layoutY="103.0" onAction="#onCreerPortefeuilleButtonClick" prefHeight="39.0" prefWidth="489.0" styleClass="btncv" text="Validez la création de votre Portefeuille" />
+                  <JFXButton fx:id="creerPortefeuilleButton" buttonType="RAISED" layoutX="177.0" layoutY="113.0" onAction="#onCreerPortefeuilleButtonClick" prefHeight="39.0" prefWidth="489.0" styleClass="btncv" text="Validez la création de votre Portefeuille" />
+                  <Label layoutX="257.0" layoutY="20.0" prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: C1C1C1;" text="| ">
+                     <font>
+                        <Font name="Eras Medium ITC" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="272.0" layoutY="20.0" prefHeight="20.0" prefWidth="340.0" text="Attention vous ne pouvez créer que 2 portefeuille">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
                <stylesheets>
                   <URL value="@dashboardstyle.css" />

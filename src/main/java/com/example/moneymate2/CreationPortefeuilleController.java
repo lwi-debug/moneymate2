@@ -6,11 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 public class CreationPortefeuilleController {
     @FXML
@@ -35,6 +38,8 @@ public class CreationPortefeuilleController {
     private TextField quantiteActionTextField;
     @FXML
     private Button creerPortefeuilleButton;
+    @FXML
+    private Label time;
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
     }
@@ -79,15 +84,13 @@ public class CreationPortefeuilleController {
         portefeuille.ajouterCrypto(crypto);
         portefeuille.ajouterAction(action);
 
-        if (!portefeuille.estVide()) {
-            utilisateurConnecte.ajouterPortefeuille(portefeuille);
-            gestionUtilisateur.sauvegarderUtilisateur(utilisateurConnecte);
-        } else {
-            System.out.println("Le portefeuille est vide.");
-        }
+        utilisateurConnecte.ajouterPortefeuille(portefeuille);
+        gestionUtilisateur.sauvegarderUtilisateur(utilisateurConnecte);
         portefeuille.calculerValeurTotalePortefeuille();
         afficherContenuPortefeuille(portefeuille);
         sauvegarderPortefeuille(portefeuille);
+        afficherListePortefeuilles();
+
 
     }
     private void afficherContenuPortefeuille(Portefeuille1 portefeuille) {
@@ -152,6 +155,7 @@ public class CreationPortefeuilleController {
             DashboardController dashController = loader.getController();
             dashController.setUtilisateurConnecte(this.utilisateurConnecte);
             dashController.setGestionUtilisateur(this.gestionUtilisateur);
+            dashController.updateData2();
 
             Scene scene = Dash.getScene();
             Stage stage = (Stage) scene.getWindow();
@@ -183,6 +187,27 @@ public class CreationPortefeuilleController {
 
         // Sauvegarder le portefeuille dans le CSV
         CSVPortefeuilleManager.sauvegarderPortefeuilles(Arrays.asList(portefeuille), emailUtilisateur);
+    }
+    public void Date(){
+        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
+        String datenow =sdf.format(new Date());
+        time.setText(datenow);
+
+    }
+    @FXML
+    public void initialize() {
+        Date();
+    }
+    private void afficherListePortefeuilles() {
+        if (utilisateurConnecte != null && utilisateurConnecte.getPortefeuilles() != null) {
+            System.out.println("Liste des portefeuilles pour l'utilisateur " + utilisateurConnecte.getEmail() + ":");
+            for (Portefeuille1 portefeuille : utilisateurConnecte.getPortefeuilles()) {
+                System.out.println("Portefeuille ID: " + portefeuille.getIdentifiant());
+                // Vous pouvez afficher d'autres détails ici si nécessaire
+            }
+        } else {
+            System.out.println("Aucun utilisateur connecté ou pas de portefeuilles disponibles.");
+        }
     }
 
 }

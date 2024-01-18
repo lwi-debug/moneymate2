@@ -54,7 +54,7 @@
         -fx-text-fill: #fff;
         -fx-background-radius: 5px; /* Pas d'espace avant "px" */
         -fx-border-radius: 5px; /* Pas d'espace avant "px" */
-        -fx-font-family: 'Calibri'; /* Assurez-vous que cette police est disponible */
+        -fx-font-family: 'Ebrima'; /* Assurez-vous que cette police est disponible */
         -fx-font-weight: bold;
         -fx-font-size: 20px;
 }
@@ -176,7 +176,7 @@
     -fx-background-color: transparent;
     -fx-background-insets: 0;
     -fx-text-fill: #ffffff;
-    -fx-font-family: 'Calibri';
+    -fx-font-family: 'Ebrima';
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-background-radius: 0;
@@ -185,7 +185,7 @@
 
 .cortt{
  -fx-text-fill: #ffffff;
-    -fx-font-family: 'Calibri';
+    -fx-font-family: 'Ebrima';
     -fx-font-weight: bold;
     -fx-font-size: 16px;
 }
