@@ -39,6 +39,18 @@ public class PortfolioDetailsController {
     @FXML
     private Label ValeurTotale;
 
+    @FXML
+    private Label nomCrypto;
+
+    @FXML
+    private Label quantitéCrypto;
+
+    @FXML
+    private Label nomAction;
+
+    @FXML
+    private Label quantitéAction;
+
 
 
 
@@ -110,13 +122,18 @@ public class PortfolioDetailsController {
 
     public void updateData(){
 
-        this.ValeurTotale.setText("$ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotale()));
+        this.ValeurTotale.setText("$ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleFromCSV()));
         this.liquidites.setText("$ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getLiquidites().get(0).getMontant()));
-        this.Crypto.setText("$ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleCryptos()));
-        this.Action.setText("$ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleAction()));
+        this.Crypto.setText("$ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleCryptosFromCSV()));
+        this.Action.setText("$ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleActionFromCSV()));
         this.pourcentageliquidite.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurLiquidites()));
-        this.pourcentageCrypto.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurCryptos()));
-        this.pourcentageAction.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurActions()));
+        this.pourcentageCrypto.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurCryptosFromCSV()));
+        this.pourcentageAction.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurActionFromCSV()));
+        this.nomCrypto.setText(this.utilisateurConnecte.getPortefeuilles().get(0).getCrypto1().getSymbole());
+        this.quantitéCrypto.setText(String.format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getCrypto1().getQuantite()));
+        this.nomAction.setText(this.utilisateurConnecte.getPortefeuilles().get(0).getAction1().getSymbole());
+        this.quantitéAction.setText(String.format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getAction1().getQuantite()));
+
 
 
     }

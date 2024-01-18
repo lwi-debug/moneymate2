@@ -1,5 +1,7 @@
 package com.example.moneymate2;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +21,78 @@ public class Portefeuille1 {
         this.cryptos = new ArrayList<>();
         this.actions = new ArrayList<>();
     }
+    public Crypto1 getCrypto1() {
+        if (!this.cryptos.isEmpty()) {
+            return this.cryptos.get(0);
+        } else {
+            return null;
+        }
+    }
+    public Action1 getAction1() {
+        if (!this.actions.isEmpty()) {
+            return this.actions.get(0);
+        } else {
+            return null;
+        }
+    }
     public List<Liquidité1> getLiquidites() {
         return liquidites;
     }
     public double getValeurTotaleCryptos() {
         return valeurTotaleCryptos();
     }
+    public static double getValeurTotaleCryptosFromCSV() {
+        String lastLine = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!lastLine.isEmpty()) {
+            String[] values = lastLine.split(",");
+            if (values.length > 4) {
+                try {
+                    return Double.parseDouble(values[4]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur lors de la conversion de la valeur en double: " + e.getMessage());
+                }
+            }
+        }
+        return 0.0;
+    }
+
     public double getValeurTotaleAction() {
         return valeurTotaleActions();
     }
+    public static double getValeurTotaleActionFromCSV() {
+        String lastLine = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!lastLine.isEmpty()) {
+            String[] values = lastLine.split(",");
+            if (values.length > 5) {
+                try {
+                    return Double.parseDouble(values[5]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur lors de la conversion de la valeur en double: " + e.getMessage());
+                }
+            }
+        }
+        return 0.0;
+    }
+
+
     public double getPourcentageValeurLiquidites() {
         return pourcentageValeurLiquidites();
     }
@@ -37,6 +102,62 @@ public class Portefeuille1 {
         return pourcentageValeurCryptos();
     }
 
+    public static double getPourcentageValeurCryptosFromCSV() {
+        String lastLine = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!lastLine.isEmpty()) {
+            String[] values = lastLine.split(",");
+            if (values.length > 4) {
+                try {
+                    double valeurTotaleCryptos = Double.parseDouble(values[4]);
+                    double valeurTotalePortefeuille = Double.parseDouble(values[2]);
+                    if (valeurTotalePortefeuille != 0) {
+                        return (valeurTotaleCryptos / valeurTotalePortefeuille) * 100;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur lors de la conversion de la valeur en double: " + e.getMessage());
+                }
+            }
+        }
+        return 0.0;
+    }
+    public static double getPourcentageValeurActionFromCSV() {
+        String lastLine = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!lastLine.isEmpty()) {
+            String[] values = lastLine.split(",");
+            if (values.length > 4) {
+                try {
+                    double valeurTotaleCryptos = Double.parseDouble(values[5]);
+                    double valeurTotalePortefeuille = Double.parseDouble(values[2]);
+                    if (valeurTotalePortefeuille != 0) {
+                        return (valeurTotaleCryptos / valeurTotalePortefeuille) * 100;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur lors de la conversion de la valeur en double: " + e.getMessage());
+                }
+            }
+        }
+        return 0.0;
+    }
+
+
     // Getter pour le pourcentage de la valeur des actions
     public double getPourcentageValeurActions() {
         return pourcentageValeurActions();
@@ -45,6 +166,30 @@ public class Portefeuille1 {
     public double getValeurTotale() {
         return calculerValeurTotalePortefeuille();
     }
+    public static double getValeurTotaleFromCSV() {
+        String lastLine = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!lastLine.isEmpty()) {
+            String[] values = lastLine.split(",");
+            if (values.length > 2) {
+                try {
+                    return Double.parseDouble(values[2]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur lors de la conversion de la valeur en double: " + e.getMessage());
+                }
+            }
+        }
+        return 0.0;
+    }
+
 
     private String genererId() {
         // Générer un UUID et le formatter en 4 blocs de 4 caractères
