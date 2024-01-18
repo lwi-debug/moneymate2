@@ -119,7 +119,13 @@ public class ApiCaller {
             if (cryptoPriceMap.containsKey(cryptoSymbol.toLowerCase())) {
                 Map<String, Double> priceMap = cryptoPriceMap.get(cryptoSymbol.toLowerCase());
                 if (priceMap.containsKey(currency)) {
-                    return priceMap.get(currency);
+
+                    if (currency == "eur") {
+                        return Math.round(priceMap.get(currency) * 0.92);
+                    }//usd en euro
+                    else {
+                        return priceMap.get(currency);
+                    }
                 } else {
                     System.out.println("Le prix en USD n'a pas été trouvé dans la réponse JSON.");
                     return -1;

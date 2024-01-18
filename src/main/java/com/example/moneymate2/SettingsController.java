@@ -28,7 +28,6 @@ public class SettingsController implements Initializable {
     @FXML
     public Button dash;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         myChoicebox.getItems().addAll(monnaie);
