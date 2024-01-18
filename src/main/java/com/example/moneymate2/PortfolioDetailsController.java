@@ -20,6 +20,30 @@ public class PortfolioDetailsController {
     public JFXButton evolution;
     @FXML
     private Label liquidites;
+
+    @FXML
+    private Label Crypto;
+
+    @FXML
+    private Label Action;
+
+    @FXML
+    private Label pourcentageliquidite;
+
+    @FXML
+    private Label pourcentageCrypto;
+
+    @FXML
+    private Label pourcentageAction;
+
+    @FXML
+    private Label ValeurTotale;
+
+
+
+
+
+
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
 
@@ -86,7 +110,14 @@ public class PortfolioDetailsController {
 
     public void updateData(){
 
+        this.ValeurTotale.setText("$ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotale()));
         this.liquidites.setText("$ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getLiquidites().get(0).getMontant()));
+        this.Crypto.setText("$ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleCryptos()));
+        this.Action.setText("$ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleAction()));
+        this.pourcentageliquidite.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurLiquidites()));
+        this.pourcentageCrypto.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurCryptos()));
+        this.pourcentageAction.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurActions()));
+
 
     }
     public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {

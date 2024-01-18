@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SettingsController  implements Initializable {
+public class SettingsController implements Initializable {
     @FXML
     private Label mylabel;
     @FXML
@@ -39,6 +39,7 @@ public class SettingsController  implements Initializable {
         this.utilisateurConnecte = utilisateur;
         this.gestionUtilisateur = new GestionUtilisateur(); // Initialisation de gestionUtilisateur
     }
+
     public void getmonnaie(ActionEvent event) {
         String selectedCurrency = myChoicebox.getValue();
         mylabel.setText(selectedCurrency);
@@ -71,4 +72,5 @@ public class SettingsController  implements Initializable {
     public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
     }
 }
+
 

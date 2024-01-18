@@ -19,6 +19,32 @@ public class Portefeuille1 {
         this.cryptos = new ArrayList<>();
         this.actions = new ArrayList<>();
     }
+    public List<Liquidité1> getLiquidites() {
+        return liquidites;
+    }
+    public double getValeurTotaleCryptos() {
+        return valeurTotaleCryptos();
+    }
+    public double getValeurTotaleAction() {
+        return valeurTotaleActions();
+    }
+    public double getPourcentageValeurLiquidites() {
+        return pourcentageValeurLiquidites();
+    }
+
+    // Getter pour le pourcentage de la valeur des cryptos
+    public double getPourcentageValeurCryptos() {
+        return pourcentageValeurCryptos();
+    }
+
+    // Getter pour le pourcentage de la valeur des actions
+    public double getPourcentageValeurActions() {
+        return pourcentageValeurActions();
+    }
+
+    public double getValeurTotale() {
+        return calculerValeurTotalePortefeuille();
+    }
 
     private String genererId() {
         // Générer un UUID et le formatter en 4 blocs de 4 caractères
@@ -31,6 +57,7 @@ public class Portefeuille1 {
     }
 
     public boolean estVide() {
+
         return liquidites.isEmpty() && cryptos.isEmpty() && actions.isEmpty();
     }
 
@@ -83,12 +110,27 @@ public class Portefeuille1 {
         }
         return total;
     }
-    public void calculerValeurTotalePortefeuille() {
+    public double calculerValeurTotalePortefeuille() {
         double totalLiquidites = valeurTotaleLiquidites();
         double totalCryptos = valeurTotaleCryptos();
         double totalActions = valeurTotaleActions();
 
         this.valeurTotalePortefeuille = totalLiquidites + totalCryptos + totalActions;
+        return totalLiquidites;
+    }
+    public double pourcentageValeurLiquidites() {
+        if (valeurTotalePortefeuille == 0) return 0;
+        return Math.round((valeurTotaleLiquidites() / valeurTotalePortefeuille) * 100 * 100.0) / 100.0;
+    }
+
+    public double pourcentageValeurCryptos() {
+        if (valeurTotalePortefeuille == 0) return 0;
+        return Math.round((valeurTotaleCryptos() / valeurTotalePortefeuille) * 100 * 100.0) / 100.0;
+    }
+
+    public double pourcentageValeurActions() {
+        if (valeurTotalePortefeuille == 0) return 0;
+        return Math.round((valeurTotaleActions() / valeurTotalePortefeuille) * 100 * 100.0) / 100.0;
     }
 
     public double getValeurTotalePortefeuille() {
