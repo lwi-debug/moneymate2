@@ -62,6 +62,11 @@ public class DashboardController {
     @FXML
     private ListView<String> Actu;
 
+    @FXML
+    private JFXButton buyButton;
+
+
+
     public DashboardController() {
         gestionUtilisateur = new GestionUtilisateur();
     }
@@ -169,6 +174,26 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void goToAchatPage(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/chemin/vers/achat.fxml"));
+            Parent achatRoot = loader.load();
+            Scene scene = buyButton.getScene();
+
+            AchatController achatController = loader.getController();
+            achatController.setUtilisateurConnecte(this.utilisateurConnecte);
+            achatController.setGestionUtilisateur(this.gestionUtilisateur);
+
+            Stage stage = (Stage) scene.getWindow();
+            stage.setScene(new Scene(achatRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @FXML
     void affichersetting(MouseEvent event) {
         try {
