@@ -46,6 +46,7 @@ public class SettingsController implements Initializable {
 
             ApiCaller.setCurrency(selectedCurrency);
             CreationPortefeuilleController.setCurrency(selectedCurrency);
+            PortfolioDetailsController.setCurrency(selectedCurrency);
 
         }
     }

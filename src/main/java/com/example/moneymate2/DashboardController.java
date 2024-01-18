@@ -11,13 +11,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
 
 public class DashboardController {
     @FXML
@@ -30,6 +34,9 @@ public class DashboardController {
     private JFXButton PorDet;
     @FXML
     private JFXButton evolution;
+    @FXML
+    private Label time;
+
 
     @FXML
     private ListView<String> Actu;
@@ -62,6 +69,7 @@ public class DashboardController {
     @FXML
     public void initialize() {
         readRss("https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/business/small-business/rss.xml");
+        Date();
     }
 
     @FXML void readRss(String rssUrl) {
@@ -136,6 +144,12 @@ public class DashboardController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void Date(){
+        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
+        String datenow =sdf.format(new Date());
+        time.setText(datenow);
+
     }
 
     public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {

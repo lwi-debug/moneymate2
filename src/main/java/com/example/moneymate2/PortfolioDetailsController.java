@@ -54,7 +54,9 @@ public class PortfolioDetailsController {
 
 
 
-
+    private static String currency = "usd";//par default
+    public static void setCurrency(String newCurrency) {
+        currency = newCurrency;}
 
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
@@ -122,10 +124,21 @@ public class PortfolioDetailsController {
 
     public void updateData(){
 
+        if(currency=="eur") {
+            this.ValeurTotale.setText("€ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleFromCSV()));
+            this.liquidites.setText("€ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getLiquidites().get(0).getMontant()));
+            this.Crypto.setText("€ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleCryptosFromCSV()));
+            this.Action.setText("€ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleActionFromCSV()));
+
+        }
+        else{
+
         this.ValeurTotale.setText("$ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleFromCSV()));
         this.liquidites.setText("$ "+ format("%.2f", this.utilisateurConnecte.getPortefeuilles().get(0).getLiquidites().get(0).getMontant()));
         this.Crypto.setText("$ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleCryptosFromCSV()));
         this.Action.setText("$ " + format("%.2f",this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleActionFromCSV()));
+
+        }
         this.pourcentageliquidite.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurLiquidites()));
         this.pourcentageCrypto.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurCryptosFromCSV()));
         this.pourcentageAction.setText(format("%.2f%%", this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurActionFromCSV()));
