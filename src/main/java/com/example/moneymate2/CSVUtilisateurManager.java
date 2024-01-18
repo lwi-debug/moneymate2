@@ -17,6 +17,15 @@ public class CSVUtilisateurManager {
         }
     }
 
+    private static Utilisateur1 convertirEnUtilisateur(String ligneCsv) {
+        String[] data = ligneCsv.split(",");
+        if (data.length < 4) {
+            System.out.println("Ligne CSV invalide: " + ligneCsv);
+            return null;
+        }
+        return new Utilisateur1(data[0], data[1], data[2], data[3]); // Nom, Prénom, Email, MotDePasse
+    }
+
     public static void sauvegarderUtilisateurs(List<Utilisateur1> utilisateurs) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(CSV_FILE))) {
             for (Utilisateur1 utilisateur : utilisateurs) {
@@ -26,15 +35,6 @@ public class CSVUtilisateurManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private static Utilisateur1 convertirEnUtilisateur(String ligneCsv) {
-        String[] data = ligneCsv.split(",");
-        if (data.length < 4) {
-            System.out.println("Ligne CSV invalide: " + ligneCsv);
-            return null;
-        }
-        return new Utilisateur1(data[0], data[1], data[2], data[3]); // Nom, Prénom, Email, MotDePasse
     }
 
     private static String convertirEnCSV(Utilisateur1 utilisateur) {

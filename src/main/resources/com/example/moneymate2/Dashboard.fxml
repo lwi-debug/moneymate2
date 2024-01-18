@@ -62,7 +62,7 @@
                         <Font name="Ebrima" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="104.0" layoutY="20.0" prefHeight="20.0" prefWidth="285.0" text="Veuillez choisir un portefeuille a examiner">
+                  <Label layoutX="104.0" layoutY="20.0" prefHeight="20.0" prefWidth="285.0" text="Veuillez choisir un portefeuille à examiner">
                      <font>
                         <Font name="Ebrima Bold" size="14.0" />
                      </font>
@@ -122,6 +122,11 @@
                      </stylesheets>
                   </AnchorPane>
                   <JFXButton fx:id="Portefeuillecreation" buttonType="RAISED" layoutX="24.0" layoutY="99.0" onMouseClicked="#affichercreaportefeuil" prefHeight="38.0" prefWidth="105.0" styleClass="btncrea" text="+" />
+                  <Label layoutX="144.0" layoutY="56.0" prefHeight="20.0" prefWidth="408.0" style="-fx-text-fill: C1C1C1;" text="|   Cliquez sur le portefeuille pour acceder a son contenu">
+                     <font>
+                        <Font name="Ebrima" size="14.0" />
+                     </font>
+                  </Label>
                </children>
                <stylesheets>
                   <URL value="@dashboardstyle.css" />
@@ -143,7 +148,7 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Label>
-            <ListView fx:id="Actu" layoutX="50.0" layoutY="346.0" prefHeight="208.0" prefWidth="610.0" style="-fx-background-color: f3f3f3;" styleClass="listview" stylesheets="@dashboardstyle.css">
+            <ListView fx:id="Actu" layoutX="50.0" layoutY="337.0" prefHeight="208.0" prefWidth="610.0" style="-fx-background-color: f3f3f3;" styleClass="listview" stylesheets="@dashboardstyle.css">
                <cursor>
                   <Cursor fx:constant="CROSSHAIR" />
                </cursor></ListView>

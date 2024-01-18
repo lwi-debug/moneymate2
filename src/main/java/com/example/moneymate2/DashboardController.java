@@ -56,7 +56,7 @@ public class DashboardController {
 
     @FXML
     private Label id2;
-    private static String currency = "usd";//par default
+    private static String currency = "usd";
 
 
     @FXML
@@ -65,19 +65,22 @@ public class DashboardController {
     public DashboardController() {
         gestionUtilisateur = new GestionUtilisateur();
     }
+
     public static void setCurrency(String newCurrency) {
         currency = newCurrency;}
 
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
-        this.gestionUtilisateur = new GestionUtilisateur(); // Initialisation de gestionUtilisateur
+        this.gestionUtilisateur = new GestionUtilisateur(); //recupere l'utilisateur
     }
+    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
+    }
+
     public void affichercreaportefeuil() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/moneymate2/CreationP.fxml"));
             Parent settingsRoot = loader.load();
 
-            // Assurez-vous que cette ligne est correcte
             CreationPortefeuilleController creationController = loader.getController();
             creationController.setUtilisateurConnecte(this.utilisateurConnecte);
             creationController.setGestionUtilisateur(this.gestionUtilisateur);
@@ -91,10 +94,15 @@ public class DashboardController {
     }
     @FXML
     public void initialize() {
-        readRss("https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/international/section/business/economy/rss.xml");
         Date();
+        readRss("https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/international/section/business/economy/rss.xml");
     }
+    public void Date(){
+        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
+        String datenow =sdf.format(new Date());
+        time.setText(datenow);
 
+    }
     @FXML void readRss(String rssUrl) {
         new Thread(() -> {
             try {
@@ -105,7 +113,7 @@ public class DashboardController {
                 List<SyndEntry> entries = feed.getEntries();
                 Platform.runLater(() -> {
                     for (SyndEntry entry : entries) {
-                        String link = entry.getLink(); // Récupérer le lien
+                        String link = entry.getLink(); // Récupérer le lien que l'on a recuperé grace a des extensions
                         String newsItem = entry.getTitle() + "\n" + entry.getPublishedDate() + "\n" + entry.getDescription().getValue() + "\nLink: " + link;
                         Actu.getItems().add(newsItem);
                     }
@@ -115,6 +123,11 @@ public class DashboardController {
             }
         }).start();
     }
+
+
+
+
+    //transition + update
     @FXML
     void afficherportfoliodetails(MouseEvent event) {
         try {
@@ -151,6 +164,8 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+
+    //transition + update
     @FXML
     void afficherportfolio2details(MouseEvent event) {
         try {
@@ -169,6 +184,8 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+
+    //transition
     @FXML
     void affichersetting(MouseEvent event) {
         try {
@@ -187,6 +204,8 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+
+    //transition + update
     @FXML
     void afficherevolution(MouseEvent event) {
         try {
@@ -205,6 +224,8 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+
+    //transition + update
     @FXML
     void afficherevolution1(MouseEvent event) {
         try {
@@ -223,6 +244,8 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+
+    //transition + update
     @FXML
     void afficherevolution2(MouseEvent event) {
         try {
@@ -241,16 +264,10 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
-    public void Date(){
-        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
-        String datenow =sdf.format(new Date());
-        time.setText(datenow);
 
-    }
 
-    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
-    }
 
+//update les labels
     public void updateData2(){
         String symboleMonnaie = "eur".equals(currency) ? "€" : "$";
 

@@ -40,6 +40,9 @@ public class CreationPortefeuilleController {
     private Button creerPortefeuilleButton;
     @FXML
     private Label time;
+    private static String currency = "usd";//par default
+
+
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
     }
@@ -48,14 +51,8 @@ public class CreationPortefeuilleController {
         this.gestionUtilisateur = gestion;
     }
 
-
-    public CreationPortefeuilleController() {
-        // Constructeur par défaut
-    }
-    private static String currency = "usd";//par default
     public static void setCurrency(String newCurrency) {
         currency = newCurrency;}
-
 
 
     @FXML
@@ -77,8 +74,8 @@ public class CreationPortefeuilleController {
         double quantiteAction = Double.parseDouble(quantiteActionTextField.getText());
 
         Liquidité1 liquidite = new Liquidité1(montantLiquidite);
-        Crypto1 crypto = new Crypto1(symboleCrypto, 0, quantiteCrypto); // Prix unitaire mis à 0 pour l'instant
-        Action1 action = new Action1(symboleAction, 0, quantiteAction); // Prix unitaire mis à 0 pour l'instant
+        Crypto1 crypto = new Crypto1(symboleCrypto, 0, quantiteCrypto); //prix sera recup plus tard avec les api
+        Action1 action = new Action1(symboleAction, 0, quantiteAction);
         Portefeuille1 portefeuille = new Portefeuille1();
         portefeuille.ajouterLiquidite(liquidite);
         portefeuille.ajouterCrypto(crypto);
@@ -109,7 +106,17 @@ public class CreationPortefeuilleController {
         System.out.println("Valeur totale des Actions: " + totalActions + " " + currency + " (" + pourcentageActions + "% du total)");
         System.out.println("Valeur totale du Portefeuille: " + valeurTotalePortefeuille + " " + currency);
     }
-
+    private void afficherListePortefeuilles() {
+        if (utilisateurConnecte != null && utilisateurConnecte.getPortefeuilles() != null) {
+            System.out.println("Liste des portefeuilles pour l'utilisateur " + utilisateurConnecte.getEmail() + ":");
+            for (Portefeuille1 portefeuille : utilisateurConnecte.getPortefeuilles()) {
+                System.out.println("Portefeuille ID: " + portefeuille.getIdentifiant());
+            }
+        } else {
+            System.out.println("Aucun utilisateur connecté ou pas de portefeuilles disponibles.");
+        }
+    }
+    //transition + update
     @FXML
     void  affichersetting(MouseEvent event) {
         try {
@@ -128,6 +135,7 @@ public class CreationPortefeuilleController {
             e.printStackTrace();
         }
     }
+    //transition + update
     @FXML
     void afficherportfoliodetails(MouseEvent event) {
         try {
@@ -146,6 +154,7 @@ public class CreationPortefeuilleController {
             e.printStackTrace();
         }
     }
+    //transition + update
     @FXML
     void afficherDashboard(MouseEvent event) {
         try {
@@ -164,6 +173,7 @@ public class CreationPortefeuilleController {
             e.printStackTrace();
         }
     }
+    //transition + update
     @FXML
     void afficherevolution(MouseEvent event) {
         try {
@@ -181,13 +191,14 @@ public class CreationPortefeuilleController {
             e.printStackTrace();
         }
     }
+
+    //ajout des info du portefeuille dans notre base de données
     private void sauvegarderPortefeuille(Portefeuille1 portefeuille) {
-        // Ajoutez la logique nécessaire pour récupérer l'email de l'utilisateur connecté
         String emailUtilisateur = utilisateurConnecte.getEmail();
 
-        // Sauvegarder le portefeuille dans le CSV
         CSVPortefeuilleManager.sauvegarderPortefeuilles(Arrays.asList(portefeuille), emailUtilisateur);
     }
+
     public void Date(){
         SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
         String datenow =sdf.format(new Date());
@@ -197,17 +208,6 @@ public class CreationPortefeuilleController {
     @FXML
     public void initialize() {
         Date();
-    }
-    private void afficherListePortefeuilles() {
-        if (utilisateurConnecte != null && utilisateurConnecte.getPortefeuilles() != null) {
-            System.out.println("Liste des portefeuilles pour l'utilisateur " + utilisateurConnecte.getEmail() + ":");
-            for (Portefeuille1 portefeuille : utilisateurConnecte.getPortefeuilles()) {
-                System.out.println("Portefeuille ID: " + portefeuille.getIdentifiant());
-                // Vous pouvez afficher d'autres détails ici si nécessaire
-            }
-        } else {
-            System.out.println("Aucun utilisateur connecté ou pas de portefeuilles disponibles.");
-        }
     }
 
 }

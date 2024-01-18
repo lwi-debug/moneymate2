@@ -22,6 +22,7 @@ public class Portefeuille1 {
         this.cryptos = new ArrayList<>();
         this.actions = new ArrayList<>();
     }
+
     public String getIdentifiant() {
         return this.identifiant;
     }
@@ -50,6 +51,8 @@ public class Portefeuille1 {
     public List<Liquidité1> getLiquidites() {
         return liquidites;
     }
+
+    //on à opté pour cette maniere de recuperer les données car gekocoin regule les requete json et donc nous obtenons trop derreru trop rapidement si nous les utilisons.
     public double getValeurTotaleCryptos() {
         return valeurTotaleCryptos();
     }
@@ -73,7 +76,7 @@ public class Portefeuille1 {
         return 0.0;
     }
 
-
+//on à opté pour cette maniere de recuperer les données car gekocoin regule les requete json et donc nous obtenons trop derreru trop rapidement si nous les utilisons.
     public double getValeurTotaleAction() {
         return valeurTotaleActions();
     }
@@ -97,12 +100,12 @@ public class Portefeuille1 {
         return 0.0;
     }
 
-
+//ici pas de requete json avec les api donc on peut recuperer directement
     public double getPourcentageValeurLiquidites() {
         return pourcentageValeurLiquidites();
     }
 
-    // Getter pour le pourcentage de la valeur des cryptos
+    //on à opté pour cette maniere de recuperer les données car gekocoin regule les requete json et donc nous obtenons trop derreru trop rapidement si nous les utilisons.
     public double getPourcentageValeurCryptos() {
         return pourcentageValeurCryptos();
     }
@@ -130,6 +133,11 @@ public class Portefeuille1 {
         }
         return 0.0;
     }
+
+    //on à opté pour cette maniere de recuperer les données car gekocoin regule les requete json et donc nous obtenons trop derreru trop rapidement si nous les utilisons.
+    public double getPourcentageValeurActions() {
+        return pourcentageValeurActions();
+    }
     public static double getPourcentageValeurActionFromCSV(String identifiant) {
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
             String line;
@@ -156,10 +164,7 @@ public class Portefeuille1 {
 
 
 
-    // Getter pour le pourcentage de la valeur des actions
-    public double getPourcentageValeurActions() {
-        return pourcentageValeurActions();
-    }
+    //on à opté pour cette maniere de recuperer les données car gekocoin regule les requete json et donc nous obtenons trop derreru trop rapidement si nous les utilisons.
 
     public double getValeurTotale() {
         return calculerValeurTotalePortefeuille();
@@ -184,8 +189,6 @@ public class Portefeuille1 {
         return 0.0;
     }
 
-
-
     private String genererId() {
         // Générer un UUID et le formatter en 4 blocs de 4 caractères
         String uuid = UUID.randomUUID().toString().replace("-", "");
@@ -196,14 +199,6 @@ public class Portefeuille1 {
         return identifiant;
     }
 
-    public boolean estVide() {
-
-        return liquidites.isEmpty() && cryptos.isEmpty() && actions.isEmpty();
-    }
-
-
-
-
     public double valeurTotaleLiquidites() {
         double total = 0;
         for (Liquidité1 liquidite : liquidites) {
@@ -211,8 +206,6 @@ public class Portefeuille1 {
         }
         return total;
     }
-
-    // Méthode pour ajouter de la liquidité
     public void ajouterLiquidite(Liquidité1 liquidite) {
         this.liquidites.add(liquidite);
     }
@@ -231,7 +224,6 @@ public class Portefeuille1 {
         return total;
     }
 
-    // Méthode pour ajouter une crypto
     public void ajouterCrypto(Crypto1 crypto) {
         this.cryptos.add(crypto);
     }
@@ -277,7 +269,7 @@ public class Portefeuille1 {
         return valeurTotalePortefeuille;
     }
 
-    // Méthode pour ajouter une action
+
     public void ajouterAction(Action1 action) {
         this.actions.add(action);
     }
@@ -286,5 +278,5 @@ public class Portefeuille1 {
         this.identifiant = identifiant;
     }
 
-    // Getters et setters ici
+
 }

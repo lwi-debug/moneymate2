@@ -23,11 +23,12 @@ public class SettingsController implements Initializable {
     private ChoiceBox<String> myChoicebox;
     private String[] monnaie = {"eur", "usd"};
 
+    public Button deco;
+
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
     @FXML
     public Button dash;
-
 
 
     @Override
@@ -36,9 +37,11 @@ public class SettingsController implements Initializable {
         myChoicebox.setOnAction(this::getmonnaie);
 
     }
+    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
+    }
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
-        this.gestionUtilisateur = new GestionUtilisateur(); // Initialisation de gestionUtilisateur
+        this.gestionUtilisateur = new GestionUtilisateur();
     }
 
     public void getmonnaie(ActionEvent event) {
@@ -49,10 +52,10 @@ public class SettingsController implements Initializable {
             ApiCaller.setCurrency(selectedCurrency);
             CreationPortefeuilleController.setCurrency(selectedCurrency);
             PortfolioDetailsController.setCurrency(selectedCurrency);
-
         }
-
     }
+
+    //Transition
     @FXML
     void dashboard(ActionEvent event) {
         try {
@@ -69,14 +72,6 @@ public class SettingsController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    public String getMonnaieActuelle() {
-        return myChoicebox.getValue();
-    }
-
-
-
-    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
     }
 }
 

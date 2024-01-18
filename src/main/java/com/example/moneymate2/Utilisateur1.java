@@ -38,7 +38,6 @@ public class Utilisateur1{
     }
 
 
-    // Setters
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -58,7 +57,6 @@ public class Utilisateur1{
         this.portefeuilles = portefeuilles;
     }
 
-    // Méthodes pour gérer les portefeuilles
     public void ajouterPortefeuille(Portefeuille1 portefeuille) {
         this.portefeuilles.add(portefeuille);
     }

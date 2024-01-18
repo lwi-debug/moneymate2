@@ -20,7 +20,7 @@ public class PortfolioEvolutionController {
     private JFXButton PorDet;
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
-    private static String currency = "usd";//par default
+    private static String currency = "usd";
 
     @FXML
     public JFXButton Dash;
@@ -47,6 +47,7 @@ public class PortfolioEvolutionController {
         currency = newCurrency;}
 
 
+    //Transition
     @FXML
     void affichersetting(MouseEvent event) {
         try {
@@ -65,6 +66,7 @@ public class PortfolioEvolutionController {
         }
     }
 
+    //Transition
     @FXML
     void afficherDashboard(MouseEvent event) {
         try {
@@ -84,6 +86,8 @@ public class PortfolioEvolutionController {
             e.printStackTrace();
         }
     }
+
+    //Transition
     @FXML
     void afficherportfoliodetails(MouseEvent event) {
         try {
@@ -102,16 +106,8 @@ public class PortfolioEvolutionController {
             e.printStackTrace();
         }
     }
-    public void Date(){
-        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
-        String datenow =sdf.format(new Date());
-        time.setText(datenow);
 
-    }
-    @FXML
-    public void initialize() {
-        Date();
-    }
+    //mise a jour des label
     public void updateData4(){
         String symboleMonnaie = "eur".equals(currency) ? "€" : "$";
 
@@ -130,6 +126,8 @@ public class PortfolioEvolutionController {
         this.ValeurTotale.setText(symboleMonnaie + " " + (valeurTotale == 0 ? "0.00" : String.format("%.2f", valeurTotale)));
         this.identifiant.setText(identifiant);
     }
+
+    //mise a jour des label
     public void updateData5(){
         String symboleMonnaie = "eur".equals(currency) ? "€" : "$";
 
@@ -154,10 +152,21 @@ public class PortfolioEvolutionController {
             this.ValeurTotale.setText(symboleMonnaie + " " + String.format("%.2f", valeurTotale2));
             this.identifiant.setText(identifiant2);
         } else {
-            // Gérez le cas où il n'y a pas de second portefeuille
+            //si il n'y a pas de 2 eme portefeuille
             this.ValeurTotale.setText(symboleMonnaie + " 0.00");
             this.identifiant.setText("N/A");
         }
+    }
+
+
+    public void Date(){
+        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
+        String datenow =sdf.format(new Date());
+        time.setText(datenow);
+    }
+    @FXML
+    public void initialize() {
+        Date();
     }
 }
 

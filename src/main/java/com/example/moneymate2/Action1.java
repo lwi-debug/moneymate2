@@ -16,21 +16,19 @@ public class Action1 {
     public String getSymbole() {
         return symbole;
     }
+    public double getPrixUnitaire() {
+        return prixUnitaire;
+    }
+    public double getQuantite() {
+        return quantite;
+    }
 
     public void setSymbole(String symbole) {
         this.symbole = symbole;
     }
 
-    public double getPrixUnitaire() {
-        return prixUnitaire;
-    }
-
     public void setPrixUnitaire(double prixUnitaire) {
         this.prixUnitaire = prixUnitaire;
-    }
-
-    public double getQuantite() {
-        return quantite;
     }
 
     public void setQuantite(double quantite) {

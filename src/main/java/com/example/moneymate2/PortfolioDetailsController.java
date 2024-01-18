@@ -58,19 +58,24 @@ public class PortfolioDetailsController {
     private Label Identifiant;
     @FXML
     private Label time;
-    private static String currency = "usd";//par default
+    private static String currency = "usd";
     private Utilisateur1 utilisateurConnecte;
     private GestionUtilisateur gestionUtilisateur;
 
     public PortfolioDetailsController() {
         gestionUtilisateur = new GestionUtilisateur();
     }
+
     public static void setCurrency(String newCurrency) {
-        currency = newCurrency;}
+        currency = newCurrency;
+    }
+
+    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
+    }
 
     public void setUtilisateurConnecte(Utilisateur1 utilisateur) {
         this.utilisateurConnecte = utilisateur;
-        this.gestionUtilisateur = new GestionUtilisateur(); // Initialisation de gestionUtilisateur
+        this.gestionUtilisateur = new GestionUtilisateur();
     }
 
     @FXML
@@ -109,6 +114,7 @@ public class PortfolioDetailsController {
             e.printStackTrace();
         }
     }
+
     @FXML
     void afficherevolution(MouseEvent event) {
         try {
@@ -119,6 +125,7 @@ public class PortfolioDetailsController {
             PortfolioEvolutionController evolController = loader.getController();
             evolController.setUtilisateurConnecte(this.utilisateurConnecte);
             evolController.setGestionUtilisateur(this.gestionUtilisateur);
+            evolController.updateData4();
 
             Stage stage = (Stage) scene.getWindow();
             stage.setScene(new Scene(settingsRoot));
@@ -139,7 +146,7 @@ public class PortfolioDetailsController {
         this.Identifiant.setText(identifiant);
 
 
-        // Obtention des valeurs en vérifiant si les listes ou objets sont null ou vides
+        // On recupere les valeurs tous en gerant le cas ou il ny a rien avec les operateurs ternaires.
         double valeurTotale = this.utilisateurConnecte.getPortefeuilles().isEmpty() ? 0 : this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleFromCSV(this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant());
         double valeurLiquidites = this.utilisateurConnecte.getPortefeuilles().isEmpty() || this.utilisateurConnecte.getPortefeuilles().get(0).getLiquidites().isEmpty() ? 0 : this.utilisateurConnecte.getPortefeuilles().get(0).getLiquidites().get(0).getMontant();
         double valeurCryptos = this.utilisateurConnecte.getPortefeuilles().isEmpty() ? 0 : this.utilisateurConnecte.getPortefeuilles().get(0).getValeurTotaleCryptosFromCSV(this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant());
@@ -148,7 +155,7 @@ public class PortfolioDetailsController {
         double pourcentageCryptos = this.utilisateurConnecte.getPortefeuilles().isEmpty() ? 0 : this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurCryptosFromCSV(this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant());
         double pourcentageActions = this.utilisateurConnecte.getPortefeuilles().isEmpty() ? 0 : this.utilisateurConnecte.getPortefeuilles().get(0).getPourcentageValeurActionFromCSV(this.utilisateurConnecte.getPortefeuilles().get(0).getIdentifiant());
 
-        // Mise à jour des labels
+        // on met a jours les label
         this.ValeurTotale.setText(symboleMonnaie + " " + String.format("%.2f", valeurTotale));
         this.liquidites.setText(symboleMonnaie + " " + String.format("%.2f", valeurLiquidites));
         this.Crypto.setText(symboleMonnaie + " " + String.format("%.2f", valeurCryptos));
@@ -157,7 +164,7 @@ public class PortfolioDetailsController {
         this.pourcentageCrypto.setText(String.format("%.2f%%", pourcentageCryptos));
         this.pourcentageAction.setText(String.format("%.2f%%", pourcentageActions));
 
-        // Gestion des cas où les objets Crypto1 et Action1 sont null
+        // pareil on gere les cas ou cest null et on recupere
         Crypto1 crypto = this.utilisateurConnecte.getPortefeuilles().isEmpty() || this.utilisateurConnecte.getPortefeuilles().get(0).getCrypto1().isEmpty() ? null : this.utilisateurConnecte.getPortefeuilles().get(0).getCrypto1();
         Action1 action = this.utilisateurConnecte.getPortefeuilles().isEmpty() || this.utilisateurConnecte.getPortefeuilles().get(0).getAction1().isEmpty() ? null : this.utilisateurConnecte.getPortefeuilles().get(0).getAction1();
         this.nomCrypto.setText(crypto != null ? crypto.getSymbole() : "N/A");
@@ -165,17 +172,18 @@ public class PortfolioDetailsController {
         this.nomAction.setText(action != null ? action.getSymbole() : "N/A");
         this.quantitéAction.setText(action != null ? String.format("%.2f", action.getQuantite()) : "0.00");
     }
+
     public void updateData3() {
         String symboleMonnaie = "eur".equals(currency) ? "€" : "$";
 
-        // Vérifier si le deuxième portefeuille existe
+        // est ce quil y a un deuxieme portefeuille ?
         if (this.utilisateurConnecte.getPortefeuilles().size() > 1) {
             Portefeuille1 deuxiemePortefeuille = this.utilisateurConnecte.getPortefeuilles().get(1);
             String identifiant = deuxiemePortefeuille.getIdentifiant();
 
             this.Identifiant.setText(identifiant);
 
-            // Obtention des valeurs
+            // On recupere les valeurs tous en gerant le cas ou il ny a rien avec les operateurs ternaires.
             double valeurTotale = deuxiemePortefeuille.getValeurTotaleFromCSV(identifiant);
             double valeurLiquidites = deuxiemePortefeuille.getLiquidites().isEmpty() ? 0 : deuxiemePortefeuille.getLiquidites().get(0).getMontant();
             double valeurCryptos = deuxiemePortefeuille.getValeurTotaleCryptosFromCSV(identifiant);
@@ -184,7 +192,7 @@ public class PortfolioDetailsController {
             double pourcentageCryptos = deuxiemePortefeuille.getPourcentageValeurCryptosFromCSV(identifiant);
             double pourcentageActions = deuxiemePortefeuille.getPourcentageValeurActionFromCSV(identifiant);
 
-            // Mise à jour des labels
+            // on met a jours les label
             this.ValeurTotale.setText(symboleMonnaie + " " + String.format("%.2f", valeurTotale));
             this.liquidites.setText(symboleMonnaie + " " + String.format("%.2f", valeurLiquidites));
             this.Crypto.setText(symboleMonnaie + " " + String.format("%.2f", valeurCryptos));
@@ -193,7 +201,7 @@ public class PortfolioDetailsController {
             this.pourcentageCrypto.setText(String.format("%.2f%%", pourcentageCryptos));
             this.pourcentageAction.setText(String.format("%.2f%%", pourcentageActions));
 
-            // Gestion des cas où les objets Crypto1 et Action1 sont null
+            // pareil on gere les cas ou c et a sont null et on recupere
             Crypto1 crypto = deuxiemePortefeuille.getCrypto1();
             Action1 action = deuxiemePortefeuille.getAction1();
             this.nomCrypto.setText(crypto != null ? crypto.getSymbole() : "N/A");
@@ -201,25 +209,21 @@ public class PortfolioDetailsController {
             this.nomAction.setText(action != null ? action.getSymbole() : "N/A");
             this.quantitéAction.setText(action != null ? String.format("%.2f", action.getQuantite()) : "0.00");
         } else {
-            // Gérer le cas où il n'y a pas de deuxième portefeuille
+            // si il n'y a pas de portefeuille
             this.Identifiant.setText("N/A");
-            // et mettre à jour les labels pour refléter l'absence de deuxième portefeuille
-            // ...
         }
     }
 
-
-    public void setGestionUtilisateur(GestionUtilisateur gestionUtilisateur) {
-    }
-    public void Date(){
-        SimpleDateFormat sdf =new SimpleDateFormat("dd MMMM yyyy");
-        String datenow =sdf.format(new Date());
-        time.setText(datenow);
-
-    }
     @FXML
     public void initialize() {
         Date();
     }
 
+
+    public void Date() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        String datenow = sdf.format(new Date());
+        time.setText(datenow);
+
+    }
 }
