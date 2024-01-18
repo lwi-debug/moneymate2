@@ -15,6 +15,7 @@ public class Portefeuille1 {
 
     private double valeurTotalePortefeuille;
 
+
     public Portefeuille1() {
         this.identifiant = genererId();
         this.liquidites = new ArrayList<>();
@@ -37,6 +38,14 @@ public class Portefeuille1 {
         } else {
             return null;
         }
+    }
+    public List<Crypto1> getCryptos() {
+        return this.cryptos;
+    }
+
+    // Méthode pour obtenir la liste complète des actions
+    public List<Action1> getActions() {
+        return this.actions;
     }
     public List<Liquidité1> getLiquidites() {
         return liquidites;

@@ -22,18 +22,19 @@ public class CSVPortefeuilleManager {
             e.printStackTrace();
         }
     }
-    private static Portefeuille1 convertirEnPortefeuille(String ligneCsv) {
+    public static Portefeuille1 convertirEnPortefeuille(String ligneCsv) {
         String[] data = ligneCsv.split(",");
 
-        if (data.length < 6) {
+        if (data.length < 8) { // Assurez-vous d'avoir suffisamment de données
             System.out.println("Ligne CSV invalide: " + ligneCsv);
             return null;
         }
 
         String emailUtilisateur = data[0];
         String identifiant = data[1];
-        double valeurTotalePortefeuille, valeurTotaleLiquidites, valeurTotaleCryptos, valeurTotaleActions;
 
+        // Parsez les valeurs numériques (valeur totale, liquidités, etc.)
+        double valeurTotalePortefeuille, valeurTotaleLiquidites, valeurTotaleCryptos, valeurTotaleActions;
         try {
             valeurTotalePortefeuille = Double.parseDouble(data[2]);
             valeurTotaleLiquidites = Double.parseDouble(data[3]);
@@ -44,17 +45,40 @@ public class CSVPortefeuilleManager {
             return null;
         }
 
+        // Créez un nouveau portefeuille
         Portefeuille1 portefeuille = new Portefeuille1();
         portefeuille.setIdentifiant(identifiant);
-        // Ici, ajoutez la logique pour ajouter les liquidités, cryptos et actions selon les valeurs lues
-        // Remarque : Vous devez établir une correspondance entre les données du CSV et la structure de votre portefeuille
 
-        // Après avoir ajouté les liquidités, cryptos et actions, calculez la valeur totale pour vérifier la cohérence
-        portefeuille.calculerValeurTotalePortefeuille();
+        // Ajoutez les liquidités
+        Liquidité1 liquidite = new Liquidité1(valeurTotaleLiquidites);
+        portefeuille.ajouterLiquidite(liquidite);
 
-        // Vérifiez si la valeur totale calculée correspond à celle lue du CSV
-        if (valeurTotalePortefeuille != portefeuille.getValeurTotalePortefeuille()) {
-            System.out.println("Incohérence des données : La valeur totale du portefeuille ne correspond pas.");
+        // Parsez et ajoutez les cryptos
+        String[] cryptoData = data[6].split(":"); // Supposons que le format soit "symbole:quantité"
+        if (cryptoData.length == 2) {
+            String symboleCrypto = cryptoData[0];
+            double quantiteCrypto = Double.parseDouble(cryptoData[1]);
+            Crypto1 crypto = new Crypto1(symboleCrypto, 0, quantiteCrypto); // 0 pour prix unitaire par défaut
+            portefeuille.ajouterCrypto(crypto);
+        }
+
+        // Parsez et ajoutez les actions
+        String[] actionData = data[7].split(":"); // Supposons que le format soit "symbole:quantité"
+        if (actionData.length == 2) {
+            String symboleAction = actionData[0];
+            double quantiteAction = Double.parseDouble(actionData[1]);
+            Action1 action = new Action1(symboleAction, 0, quantiteAction); // 0 pour prix unitaire par défaut
+            portefeuille.ajouterAction(action);
+        }
+
+        // Calculez la valeur totale pour vérifier la cohérence
+        double valeurCalculee = portefeuille.calculerValeurTotalePortefeuille();
+        if (valeurCalculee > valeurTotalePortefeuille) {
+            System.out.println("La valeur du portefeuille a augmenté depuis la dernière sauvegarde.");
+        } else if (valeurCalculee < valeurTotalePortefeuille) {
+            System.out.println("La valeur du portefeuille a diminué depuis la dernière sauvegarde.");
+        } else {
+            System.out.println("La valeur du portefeuille est restée la même depuis la dernière sauvegarde.");
         }
 
         return portefeuille;
@@ -75,18 +99,31 @@ public class CSVPortefeuilleManager {
         return portefeuilles;
     }
     private static String convertirEnCSV(Portefeuille1 portefeuille, String emailUtilisateur) {
-        double valeurTotalePortefeuille = portefeuille.getValeurTotalePortefeuille();
-        double valeurTotaleLiquidites = portefeuille.valeurTotaleLiquidites();
-        double valeurTotaleCryptos = portefeuille.valeurTotaleCryptos();
-        double valeurTotaleActions = portefeuille.valeurTotaleActions();
+        StringBuilder builder = new StringBuilder();
+        builder.append(emailUtilisateur).append(",")
+                .append(portefeuille.getIdentifiant()).append(",")
+                .append(portefeuille.getValeurTotalePortefeuille()).append(",")
+                .append(portefeuille.valeurTotaleLiquidites()).append(",")
+                .append(portefeuille.valeurTotaleCryptos()).append(",")
+                .append(portefeuille.valeurTotaleActions());
 
-        return emailUtilisateur + "," +
-                portefeuille.getIdentifiant() + "," +
-                valeurTotalePortefeuille + "," +
-                valeurTotaleLiquidites + "," +
-                valeurTotaleCryptos + "," +
-                valeurTotaleActions;
+        // Ajouter les informations de crypto
+        // Ajouter les informations de crypto
+        for (Crypto1 crypto : portefeuille.getCryptos()) { // Utilisation de getCryptos() au lieu de getCrypto1()
+            builder.append(",").append(crypto.getSymbole())
+                    .append(":").append(crypto.getQuantite());
+        }
+
+// Ajouter les informations d'actions
+        for (Action1 action : portefeuille.getActions()) { // Utilisation de getActions() au lieu de getAction1()
+            builder.append(",").append(action.getSymbole())
+                    .append(":").append(action.getQuantite());
+        }
+
+
+        return builder.toString();
     }
+
 }
 
 
