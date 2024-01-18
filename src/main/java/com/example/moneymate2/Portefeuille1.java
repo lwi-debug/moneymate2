@@ -183,7 +183,78 @@ public class Portefeuille1 {
         }
         return 0.0;
     }
+    public static double getValeurLiquiditesFromCSV() {
+        String lastLine = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        if (!lastLine.isEmpty()) {
+            String[] values = lastLine.split(",");
+            if (values.length > 3) {  // Modifier si nécessaire en fonction de la structure du fichier CSV
+                try {
+                    return Double.parseDouble(values[3]);  // Modifier l'indice si nécessaire
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur lors de la conversion de la valeur en double : " + e.getMessage());
+                }
+            }
+        }
+        return 0.0;
+    }
+
+    // on voulait utiliser ces fonctions pour achat et vente
+    /*public static double getValeurCryptoFromCSV() {
+        String lastLine = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!lastLine.isEmpty()) {
+            String[] values = lastLine.split(",");
+            if (values.length > 4) {  // Modifier si nécessaire en fonction de la structure du fichier CSV
+                try {
+                    return Double.parseDouble(values[4]);  // Modifier l'indice si nécessaire
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur lors de la conversion de la valeur en double : " + e.getMessage());
+                }
+            }
+        }
+        return 0.0;
+    }
+    public static double getValeurActionsFromCSV() {
+        String lastLine = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/example/moneymate2/Portefeuilles.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!lastLine.isEmpty()) {
+            String[] values = lastLine.split(",");
+            if (values.length >=5) {  // Modifier si nécessaire en fonction de la structure du fichier CSV
+                try {
+                    return Double.parseDouble(values[5]);  // Modifier l'indice si nécessaire
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur lors de la conversion de la valeur en double : " + e.getMessage());
+                }
+            }
+        }
+        return 0.0;
+    }
+*/
 
 
     private String genererId() {
@@ -286,5 +357,4 @@ public class Portefeuille1 {
         this.identifiant = identifiant;
     }
 
-    // Getters et setters ici
 }
