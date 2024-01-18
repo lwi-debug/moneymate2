@@ -1,4 +1,4 @@
-package com.example.moneymate2;
+/*package com.example.moneymate2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -116,6 +116,6 @@ public class AchatController {
         }
     }
 }
-
+*/
 
 

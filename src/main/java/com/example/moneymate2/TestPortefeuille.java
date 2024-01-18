@@ -1,4 +1,4 @@
-package com.example.moneymate2;
+/*package com.example.moneymate2;
 
 public class TestPortefeuille {
 
@@ -13,3 +13,4 @@ public class TestPortefeuille {
         System.out.println("Valeur des liquidités dans le fichier CSV : " + valeurLiquidites);
     }
 }
+*/
